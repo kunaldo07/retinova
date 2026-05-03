@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ratinova — Total Control Over Your Restaurant's Reviews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --g: #00E87A;
+  --g2: #00C068;
+  --gd: rgba(0,232,122,0.08);
+  --gd2: rgba(0,232,122,0.15);
+  --bg: #050508;
+  --bg2: #08080D;
+  --bg3: #0D0D14;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.1);
+  --text: #F0F0F5;
+  --muted: rgba(240,240,245,0.5);
+  --dim: rgba(240,240,245,0.25);
+  --red: #FF4444;
+  --amber: #FFB800;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:default;
+}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;letter-spacing:-0.02em}
+
+/* NOISE OVERLAY */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:1000;opacity:0.4;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:20px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,5,8,0.7);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  animation:fadeDown 0.6s ease both;
+}
+.logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:20px;
+  color:var(--g);letter-spacing:-0.03em;
+  display:flex;align-items:center;gap:8px;
+}
+.logo-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--g);
+  animation:pulse 2s ease infinite;
+}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-link{
+  font-size:14px;color:var(--muted);
+  text-decoration:none;padding:6px 12px;
+  transition:color 0.2s;
+}
+.nav-link:hover{color:var(--text)}
+.nav-btn{
+  background:var(--g);color:#000;
+  padding:8px 22px;border-radius:8px;
+  font-weight:600;font-size:14px;
+  text-decoration:none;border:none;
+  font-family:'Outfit',sans-serif;
+  cursor:pointer;transition:all 0.2s;
+  letter-spacing:0.01em;
+}
+.nav-btn:hover{background:var(--g2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:120px 24px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,232,122,0.12) 0%,transparent 70%);
+  pointer-events:none;
+  animation:breathe 4s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:translateX(-50%) scale(1);opacity:0.8}50%{transform:translateX(-50%) scale(1.1);opacity:1}}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gd2);border:1px solid rgba(0,232,122,0.3);
+  padding:7px 16px;border-radius:100px;
+  font-size:12px;font-weight:600;color:var(--g);
+  margin-bottom:28px;letter-spacing:0.05em;text-transform:uppercase;
+  animation:fadeUp 0.6s 0.1s ease both;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.hero h1{
+  font-size:clamp(40px,7vw,76px);
+  font-weight:800;line-height:1.05;
+  max-width:860px;margin-bottom:20px;
+  animation:fadeUp 0.7s 0.2s ease both;
+}
+.hero h1 em{font-style:normal;color:var(--g)}
+.hero h1 .strike{
+  position:relative;color:var(--muted);
+}
+.hero h1 .strike::after{
+  content:'';position:absolute;left:0;right:0;
+  top:50%;height:3px;background:var(--red);
+  transform:rotate(-2deg);
+}
+.hero-sub{
+  font-size:clamp(16px,2.5vw,19px);
+  color:var(--muted);max-width:540px;
+  margin:0 auto 40px;line-height:1.7;
+  animation:fadeUp 0.7s 0.3s ease both;
+}
+.hero-ctas{
+  display:flex;gap:12px;flex-wrap:wrap;
+  justify-content:center;margin-bottom:56px;
+  animation:fadeUp 0.7s 0.4s ease both;
+}
+.btn-main{
+  background:var(--g);color:#000;
+  padding:14px 32px;border-radius:10px;
+  font-weight:700;font-size:15px;
+  text-decoration:none;border:none;
+  font-family:'Outfit',sans-serif;cursor:pointer;
+  transition:all 0.25s;display:flex;
+  align-items:center;gap:8px;
+}
+.btn-main:hover{background:var(--g2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,232,122,0.25)}
+.btn-ghost{
+  background:transparent;color:var(--text);
+  padding:14px 32px;border-radius:10px;
+  font-weight:500;font-size:15px;
+  text-decoration:none;border:1px solid var(--border2);
+  font-family:'Outfit',sans-serif;cursor:pointer;
+  transition:all 0.2s;
+}
+.btn-ghost:hover{background:var(--bg3);border-color:var(--border2)}
+
+/* STATS */
+.hero-stats{
+  display:flex;gap:40px;flex-wrap:wrap;
+  justify-content:center;
+  animation:fadeUp 0.7s 0.5s ease both;
+}
+.h-stat{}
+.h-stat-n{
+  font-family:'Syne',sans-serif;font-size:28px;
+  font-weight:800;color:var(--g);
+}
+.h-stat-l{font-size:12px;color:var(--dim);margin-top:2px}
+
+/* DIVIDER */
+.divider{
+  border:none;border-top:1px solid var(--border);
+  margin:0;
+}
+
+/* TRUST BAR */
+.trust{
+  padding:18px 40px;
+  display:flex;align-items:center;justify-content:center;
+  gap:6px;flex-wrap:wrap;
+  font-size:12px;color:var(--dim);
+  background:var(--bg2);
+}
+.trust strong{color:var(--muted)}
+.t-dot{width:3px;height:3px;border-radius:50%;background:var(--border2);flex-shrink:0}
+
+/* SECTIONS */
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.s-tag{
+  display:inline-block;font-size:11px;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--g);margin-bottom:14px;
+}
+.s-title{
+  font-size:clamp(28px,4.5vw,46px);
+  font-weight:800;line-height:1.1;margin-bottom:14px;
+}
+.s-sub{
+  font-size:16px;color:var(--muted);
+  max-width:500px;line-height:1.8;
+}
+
+/* PROBLEM */
+.problem{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.prob-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;margin-top:48px;
+}
+.prob-card{
+  background:rgba(255,68,68,0.04);
+  border:1px solid rgba(255,68,68,0.15);
+  border-radius:14px;padding:24px;
+  transition:transform 0.2s,border-color 0.2s;
+}
+.prob-card:hover{transform:translateY(-3px);border-color:rgba(255,68,68,0.3)}
+.prob-ico{font-size:28px;margin-bottom:12px}
+.prob-title{
+  font-family:'Syne',sans-serif;font-size:16px;
+  font-weight:700;color:#FF7777;margin-bottom:8px;
+}
+.prob-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.prob-stat{
+  margin-top:12px;padding:8px 12px;
+  background:rgba(255,68,68,0.08);
+  border-radius:8px;font-size:12px;
+  color:rgba(255,100,100,0.9);font-weight:600;
+}
+
+/* HOW IT WORKS */
+.how-wrap{margin-top:56px}
+.how-step{
+  display:grid;grid-template-columns:60px 1fr;
+  gap:24px;align-items:flex-start;
+  padding:28px 0;
+  border-bottom:1px solid var(--border);
+  transition:all 0.2s;
+}
+.how-step:last-child{border-bottom:none}
+.how-step:hover .step-num{background:var(--g);color:#000}
+.step-num{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--gd2);border:1px solid rgba(0,232,122,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:15px;
+  font-weight:800;color:var(--g);
+  transition:all 0.2s;flex-shrink:0;
+}
+.step-icon{font-size:32px;text-align:center;flex-shrink:0;margin-top:2px}
+.step-title{
+  font-family:'Syne',sans-serif;font-size:18px;
+  font-weight:700;margin-bottom:6px;
+}
+.step-desc{font-size:14px;color:var(--muted);line-height:1.8}
+.step-chip{
+  display:inline-block;margin-top:10px;
+  font-size:11px;font-weight:700;
+  padding:4px 12px;border-radius:100px;
+  background:var(--gd2);color:var(--g);
+  border:1px solid rgba(0,232,122,0.2);
+  letter-spacing:0.04em;
+}
+
+/* ROUTING VISUAL */
+.routing-box{
+  margin-top:48px;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:18px;padding:36px;text-align:center;
+}
+.r-center{
+  display:inline-block;padding:14px 28px;
+  background:rgba(139,92,246,0.15);
+  border:2px solid rgba(139,92,246,0.4);
+  border-radius:12px;
+  font-family:'Syne',sans-serif;
+  font-weight:700;font-size:15px;color:#C4B5FD;
+  margin-bottom:8px;
+}
+.r-arrows{
+  font-size:24px;color:var(--dim);
+  display:flex;gap:48px;justify-content:center;
+  margin:16px 0;
+}
+.r-paths{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.r-path{
+  flex:1;min-width:200px;max-width:280px;
+  border-radius:14px;padding:22px;
+}
+.r-happy{background:rgba(0,232,122,0.06);border:2px solid rgba(0,232,122,0.3)}
+.r-sad{background:rgba(255,68,68,0.06);border:2px solid rgba(255,68,68,0.25)}
+.r-emoji{font-size:32px;margin-bottom:8px}
+.r-stars{font-size:14px;font-weight:700;margin-bottom:6px}
+.r-happy .r-stars{color:var(--g)}
+.r-sad .r-stars{color:var(--red)}
+.r-desc{font-size:12px;color:var(--muted);line-height:1.6}
+.r-badge{
+  display:inline-block;margin-top:10px;
+  font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;
+}
+.r-happy .r-badge{background:rgba(0,232,122,0.15);color:var(--g)}
+.r-sad .r-badge{background:rgba(255,68,68,0.12);color:#FF7777}
+
+/* FEATURES */
+.feat-bg{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.feat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:12px;margin-top:48px;
+}
+.feat-card{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:16px;padding:24px;
+  transition:all 0.25s;
+  position:relative;overflow:hidden;
+}
+.feat-card::before{
+  content:'';position:absolute;
+  top:-40px;right:-40px;
+  width:100px;height:100px;border-radius:50%;
+  background:var(--gd);
+  opacity:0;transition:opacity 0.3s;
+}
+.feat-card:hover{border-color:rgba(0,232,122,0.2);transform:translateY(-3px)}
+.feat-card:hover::before{opacity:1}
+.feat-n{font-size:11px;font-weight:700;color:var(--dim);margin-bottom:12px;letter-spacing:0.1em}
+.feat-ico{font-size:28px;margin-bottom:12px}
+.feat-title{
+  font-family:'Syne',sans-serif;font-size:15px;
+  font-weight:700;margin-bottom:8px;
+}
+.feat-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* PROOF */
+.stats-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:12px;margin-top:48px;
+}
+.stat-block{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:14px;padding:24px 20px;text-align:center;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.stat-block:hover{border-color:rgba(0,232,122,0.2);transform:translateY(-2px)}
+.stat-n{
+  font-family:'Syne',sans-serif;font-size:34px;
+  font-weight:800;color:var(--g);margin-bottom:6px;
+}
+.stat-l{font-size:12px;color:var(--muted);line-height:1.5}
+.stat-s{font-size:10px;color:var(--dim);margin-top:6px;font-style:italic}
+
+/* QUOTE */
+.quote-block{
+  margin-top:40px;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:18px;padding:36px 40px;
+  position:relative;
+  border-left:4px solid var(--g);
+}
+.q-mark{
+  font-family:'Syne',sans-serif;font-size:72px;
+  color:var(--gd2);line-height:0;position:absolute;
+  top:28px;left:32px;
+}
+.q-text{
+  font-size:18px;line-height:1.8;color:var(--text);
+  font-style:italic;padding-left:12px;
+}
+.q-text strong{color:var(--g);font-style:normal}
+.q-src{
+  margin-top:16px;font-size:12px;
+  color:var(--dim);padding-left:12px;
+}
+
+/* COMPETITOR TABLE */
+.comp-bg{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.comp-scroll{overflow-x:auto;margin-top:40px;border-radius:14px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse}
+thead tr{background:var(--bg3)}
+th{
+  padding:14px 18px;text-align:left;
+  font-size:12px;font-weight:700;
+  color:var(--dim);text-transform:uppercase;
+  letter-spacing:0.06em;
+  border-bottom:1px solid var(--border);
+}
+th.you{color:var(--g);background:var(--gd)}
+td{
+  padding:13px 18px;font-size:13px;
+  border-bottom:1px solid var(--border);
+  color:var(--text);
+}
+td.you{background:var(--gd);font-weight:600;color:var(--g)}
+tr:last-child td{border-bottom:none}
+.tick{color:var(--g);font-weight:700}
+.cross{color:rgba(255,255,255,0.15)}
+.partial{color:var(--amber)}
+
+/* PRICING */
+.pricing-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;margin-top:48px;
+}
+.plan{border-radius:18px;padding:30px;position:relative}
+.plan-free{
+  background:var(--bg3);
+  border:1px solid var(--border);
+}
+.plan-main{
+  background:var(--gd);
+  border:2px solid rgba(0,232,122,0.35);
+}
+.plan-hot{
+  position:absolute;top:-13px;left:50%;
+  transform:translateX(-50%);
+  background:var(--g);color:#000;
+  font-size:11px;font-weight:800;
+  padding:4px 16px;border-radius:100px;
+  white-space:nowrap;letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.plan-name{
+  font-size:12px;font-weight:700;color:var(--dim);
+  text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;
+}
+.plan-price{
+  font-family:'Syne',sans-serif;font-size:38px;
+  font-weight:800;margin-bottom:4px;
+}
+.plan-price span{font-size:15px;font-weight:400;color:var(--muted)}
+.plan-note{font-size:12px;color:var(--muted);margin-bottom:24px}
+.plan-feats{list-style:none}
+.plan-feats li{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13px;padding:7px 0;
+  border-bottom:1px solid var(--border);
+  line-height:1.5;
+}
+.plan-feats li:last-child{border-bottom:none}
+.plan-feats li::before{
+  content:"✓";color:var(--g);
+  font-weight:800;flex-shrink:0;margin-top:1px;
+}
+.plan-cta{
+  display:block;text-align:center;width:100%;
+  margin-top:22px;padding:13px;border-radius:10px;
+  font-weight:700;font-size:15px;
+  font-family:'Outfit',sans-serif;cursor:pointer;
+  border:none;text-decoration:none;transition:all 0.2s;
+}
+.plan-main .plan-cta{background:var(--g);color:#000}
+.plan-main .plan-cta:hover{background:var(--g2);transform:translateY(-1px)}
+.plan-free .plan-cta{
+  background:transparent;color:var(--text);
+  border:1px solid var(--border2);
+}
+.plan-free .plan-cta:hover{background:var(--bg2)}
+
+/* FAQ */
+.faq-list{margin-top:48px}
+.faq-item{
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.faq-q{
+  display:flex;justify-content:space-between;
+  align-items:center;padding:20px 0;
+  cursor:pointer;
+  font-family:'Syne',sans-serif;
+  font-size:16px;font-weight:600;
+  transition:color 0.2s;gap:16px;
+}
+.faq-q:hover{color:var(--g)}
+.faq-toggle{
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--g);
+  flex-shrink:0;transition:transform 0.3s,background 0.2s;
+}
+.faq-item.open .faq-toggle{transform:rotate(45deg);background:var(--gd2)}
+.faq-a{
+  font-size:14px;color:var(--muted);line-height:1.8;
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+  padding:0;
+}
+.faq-item.open .faq-a{max-height:300px;padding:0 0 20px}
+
+/* CTA SECTION */
+.cta-section{
+  padding:96px 24px;
+  background:linear-gradient(180deg,var(--bg) 0%,#050A08 50%,var(--bg) 100%);
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-glow{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:400px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,232,122,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-inner{max-width:540px;margin:0 auto;position:relative}
+.cta-inner h2{
+  font-size:clamp(30px,5vw,50px);
+  font-weight:800;margin-bottom:14px;line-height:1.1;
+}
+.cta-inner p{
+  font-size:16px;color:var(--muted);
+  margin-bottom:32px;line-height:1.8;
+}
+.cta-form{
+  display:flex;gap:10px;max-width:460px;
+  margin:0 auto;flex-wrap:wrap;justify-content:center;
+}
+.cta-input{
+  flex:1;min-width:200px;
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:10px;padding:13px 18px;
+  font-size:14px;color:var(--text);
+  font-family:'Outfit',sans-serif;outline:none;
+  transition:border-color 0.2s;
+}
+.cta-input::placeholder{color:var(--dim)}
+.cta-input:focus{border-color:rgba(0,232,122,0.4)}
+.cta-btn{
+  background:var(--g);color:#000;
+  padding:13px 28px;border-radius:10px;
+  font-weight:700;font-size:15px;
+  border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;
+  transition:all 0.2s;white-space:nowrap;
+}
+.cta-btn:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,232,122,0.2)}
+.cta-note{font-size:11px;color:var(--dim);margin-top:14px}
+.cta-platforms{
+  display:flex;gap:8px;justify-content:center;
+  flex-wrap:wrap;margin-top:20px;
+}
+.plat-tag{
+  font-size:11px;font-weight:600;
+  padding:5px 12px;border-radius:8px;
+  border:1px solid var(--border);
+  color:var(--dim);
+}
+
+/* FOOTER */
+footer{
+  padding:36px 40px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.footer-logo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:18px;color:var(--g);
+}
+.footer-right{font-size:12px;color:var(--dim)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--muted)}
+
+/* FLOATING WA */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:800;
+  width:54px;height:54px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;text-decoration:none;
+  box-shadow:0 4px 24px rgba(37,211,102,0.4);
+  transition:all 0.2s;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(37,211,102,0.5)}
+
+/* TOAST */
+.toast{
+  position:fixed;bottom:100px;right:28px;z-index:999;
+  background:var(--g);color:#000;
+  padding:12px 22px;border-radius:10px;
+  font-size:13px;font-weight:700;
+  font-family:'Outfit',sans-serif;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.3s;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* SCROLL ANIMATIONS */
+.reveal{
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:680px){
+  nav{padding:16px 20px}
+  .nav-link{display:none}
+  .hero{padding:100px 20px 60px}
+  .trust{padding:16px 20px}
+  .how-step{grid-template-columns:1fr}
+  .step-num{width:38px;height:38px;font-size:13px}
+  footer{flex-direction:column;align-items:flex-start;padding:24px 20px}
+  .r-paths{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-dot"></div>
+    Ratinova
+  </div>
+  <div class="nav-right">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <button class="nav-btn" onclick="scrollTo('waitlist')">Get early access</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-tag">
+    <div class="logo-dot"></div>
+    Now onboarding founding restaurants in Hyderabad
+  </div>
+  <h1>Your restaurant's reputation.<br/><em>Under your control.</em></h1>
+  <p class="hero-sub">One platform that manages all your reviews across Google, Zomato, Swiggy and Facebook — with instant WhatsApp alerts, AI replies, and a system that catches bad reviews before they ever go public.</p>
+  <div class="hero-ctas">
+    <button class="btn-main" onclick="scrollTo('waitlist')">
+      Join as founding partner →
+    </button>
+    <a href="#how" class="btn-ghost">See how it works</a>
+  </div>
+  <div class="hero-stats">
+    <div class="h-stat">
+      <div class="h-stat-n">5–9%</div>
+      <div class="h-stat-l">Revenue boost per<br/>1-star improvement</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-n">91%</div>
+      <div class="h-stat-l">Diners skip restaurants<br/>below 4 stars</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-n">₹3K</div>
+      <div class="h-stat-l">Per month — all<br/>10 features</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-n">14 days</div>
+      <div class="h-stat-l">Completely free<br/>No card needed</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <strong>Works with</strong>
+  <div class="t-dot"></div>
+  Google Reviews
+  <div class="t-dot"></div>
+  Zomato
+  <div class="t-dot"></div>
+  Swiggy
+  <div class="t-dot"></div>
+  Facebook
+  <div class="t-dot"></div>
+  <strong>WhatsApp-first. India-built.</strong>
+</div>
+
+<!-- PROBLEM -->
+<section class="section problem" id="problem">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-tag">The problem</div>
+      <h2 class="s-title">Your restaurant is losing money.<br/>Every single day.</h2>
+      <p class="s-sub">Harvard Business School studied 2,000 restaurants and proved it. Here's what's happening to yours.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card reveal">
+        <div class="prob-ico">😤</div>
+        <div class="prob-title">Reviews you never see</div>
+        <div class="prob-desc">A 1-star review sits on Google for 3 days. 300 people read it. Zero reply. Your reputation takes the hit silently.</div>
+        <div class="prob-stat">⚠ Avg response time: 3–7 days</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="prob-ico">📉</div>
+        <div class="prob-title">A rating that lies</div>
+        <div class="prob-desc">Happy customers walk out and say nothing. Angry ones always post. Your 3.8-star rating reflects the 1%, not the 99%.</div>
+        <div class="prob-stat">⚠ 20 five-stars to offset 1 one-star</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="prob-ico">💸</div>
+        <div class="prob-title">Customers choosing someone else</div>
+        <div class="prob-desc">At 3.6 stars, 55% of people searching nearby pick a competitor — before they read your menu or know your food.</div>
+        <div class="prob-stat">⚠ ₹2.75L lost/mo on ₹5L revenue</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="prob-ico">🌐</div>
+        <div class="prob-title">4 platforms. Zero system.</div>
+        <div class="prob-desc">Google, Zomato, Swiggy, Facebook — four apps, four logins, four places something can go wrong while you run your kitchen.</div>
+        <div class="prob-stat">⚠ No Indian tool manages all four</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how" style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-tag">How it works</div>
+      <h2 class="s-title">From customer scan to<br/>5-star review in 60 seconds</h2>
+      <p class="s-sub">Six steps. Fully automatic. You do nothing except choose which AI reply to send.</p>
+    </div>
+    <div class="how-wrap">
+      <div class="how-step reveal">
+        <div class="step-icon">📲</div>
+        <div>
+          <div class="step-title">Customer scans your QR code</div>
+          <div class="step-desc">A branded QR code sits on your table or counter. Customer finishes their meal, scans it with their phone camera. No app download. No friction. Works on any phone in 2 seconds.</div>
+          <span class="step-chip">Happens automatically at your table</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-icon">⭐</div>
+        <div>
+          <div class="step-title">They tap a star rating</div>
+          <div class="step-desc">A clean, branded page appears asking how their experience was. One tap on a star. That is all they do.</div>
+          <span class="step-chip">5 seconds. Zero friction.</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-icon">🔀</div>
+        <div>
+          <div class="step-title">Smart routing catches bad reviews privately</div>
+          <div class="step-desc">4–5 stars → they go straight to Google to post publicly. 1–3 stars → their feedback comes to you privately on WhatsApp. Bad reviews are caught before they ever reach Google.</div>
+          <span class="step-chip">Your most important protection</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-icon">🔔</div>
+        <div>
+          <div class="step-title">Instant WhatsApp alert</div>
+          <div class="step-desc">The moment any review is posted on Google, Zomato, Swiggy or Facebook — you know about it immediately. No more finding a 1-star review 3 days later.</div>
+          <span class="step-chip">All 4 platforms. Real-time.</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-icon">🤖</div>
+        <div>
+          <div class="step-title">AI writes your reply in 10 seconds</div>
+          <div class="step-desc">For every review — positive or negative — AI generates 3 professional reply options. You pick one and click send. 10 seconds instead of 20 minutes of stress.</div>
+          <span class="step-chip">35% higher return rate from responding</span>
+        </div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-icon">📊</div>
+        <div>
+          <div class="step-title">Everything in one dashboard</div>
+          <div class="step-desc">All your Google, Zomato, Swiggy and Facebook reviews in one screen. See everything, reply to everything, track your rating over time. The only tool in India with all four platforms.</div>
+          <span class="step-chip">One login. Total control.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROUTING VISUAL -->
+    <div class="routing-box reveal">
+      <div style="font-size:11px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px">How smart routing protects your rating</div>
+      <div class="r-center">Customer taps a star rating</div>
+      <div class="r-arrows"><span>↙</span><span>↘</span></div>
+      <div class="r-paths">
+        <div class="r-path r-happy">
+          <div class="r-emoji">😊</div>
+          <div class="r-stars">4 – 5 Stars</div>
+          <div class="r-desc">Redirected to Google to post a public 5-star review</div>
+          <div class="r-badge">→ Google Reviews ★</div>
+        </div>
+        <div class="r-path r-sad">
+          <div class="r-emoji">😔</div>
+          <div class="r-stars">1 – 3 Stars</div>
+          <div class="r-desc">Private WhatsApp alert to you only. Never reaches Google.</div>
+          <div class="r-badge">→ Private to owner 🔒</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section feat-bg" id="features">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-tag">All 10 features</div>
+      <h2 class="s-title">Built for Indian restaurants.<br/>Not a Western tool with Zomato added on.</h2>
+      <p class="s-sub">Every feature is designed for how restaurant owners in India actually work — WhatsApp-first, all 4 platforms, regional context.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal">
+        <div class="feat-n">01</div>
+        <div class="feat-ico">📲</div>
+        <div class="feat-title">QR Code Review Collection</div>
+        <div class="feat-desc">Branded QR code for your table. Customer scans, taps a star. No app. Works on every phone.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">02</div>
+        <div class="feat-ico">🔀</div>
+        <div class="feat-title">Smart Review Routing</div>
+        <div class="feat-desc">4–5 stars go to Google. 1–3 stars come to you privately on WhatsApp before they go public.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">03</div>
+        <div class="feat-ico">📩</div>
+        <div class="feat-title">WhatsApp & SMS Review Requests</div>
+        <div class="feat-desc">Auto-sent 2 hours after visit with a direct Google review link. No manual follow-up needed.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">04</div>
+        <div class="feat-ico">🔔</div>
+        <div class="feat-title">Instant WhatsApp Alerts</div>
+        <div class="feat-desc">Real-time WhatsApp notification the moment any review is posted on any platform.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">05</div>
+        <div class="feat-ico">🤖</div>
+        <div class="feat-title">AI Reply Suggestions</div>
+        <div class="feat-desc">3 professional reply options for every review. Pick one, send in 10 seconds.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">06</div>
+        <div class="feat-ico">📢</div>
+        <div class="feat-title">WhatsApp Campaigns</div>
+        <div class="feat-desc">Send bulk promotional messages to your entire customer database. Festival offers, new menu, weekend specials.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">07</div>
+        <div class="feat-ico">📋</div>
+        <div class="feat-title">Weekly WhatsApp Report</div>
+        <div class="feat-desc">Every Monday at 9am — new reviews, rating changes, negative ones caught privately. All on WhatsApp.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">08</div>
+        <div class="feat-ico">📊</div>
+        <div class="feat-title">Review Dashboard</div>
+        <div class="feat-desc">Google + Zomato + Swiggy + Facebook in one screen. The only tool in India with all four platforms.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">09</div>
+        <div class="feat-ico">👥</div>
+        <div class="feat-title">Customer Database</div>
+        <div class="feat-desc">Every QR scan auto-captures name and number. Your customer list grows without you doing anything.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-n">10</div>
+        <div class="feat-ico">📈</div>
+        <div class="feat-title">Analytics Dashboard</div>
+        <div class="feat-desc">Track QR scans, review requests sent, conversion rate, and watch your rating climb week by week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section" style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-tag">Research-backed proof</div>
+      <h2 class="s-title">What the data says about<br/>reviews and restaurant revenue</h2>
+    </div>
+    <div class="stats-row">
+      <div class="stat-block reveal">
+        <div class="stat-n">5–9%</div>
+        <div class="stat-l">Revenue increase per 1-star improvement on Google</div>
+        <div class="stat-s">Harvard Business School — 2,000 restaurants</div>
+      </div>
+      <div class="stat-block reveal">
+        <div class="stat-n">91%</div>
+        <div class="stat-l">Of diners avoid restaurants rated below 4 stars</div>
+        <div class="stat-s">Google Reviews Hospitality Study 2025</div>
+      </div>
+      <div class="stat-block reveal">
+        <div class="stat-n">30–49%</div>
+        <div class="stat-l">More tables filled at peak hours per half-star boost</div>
+        <div class="stat-s">UC Berkeley Economist Study</div>
+      </div>
+      <div class="stat-block reveal">
+        <div class="stat-n">35%</div>
+        <div class="stat-l">Higher customer return rate when owners respond to reviews</div>
+        <div class="stat-s">Restaurant Marketing Statistics 2025</div>
+      </div>
+    </div>
+    <div class="quote-block reveal">
+      <div class="q-mark">"</div>
+      <div class="q-text">When we added a QR code review system across our 10 restaurants, <strong>top-line revenue went up 10% every time</strong> — in every single location, within 3 months. The single highest-impact change we made all year.</div>
+      <div class="q-src">— David Orr, President & Owner, Parched Hospitality Group (10 locations, UK)</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITOR COMPARISON -->
+<section class="section comp-bg">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-tag">Why Ratinova</div>
+      <h2 class="s-title">Every competitor is built<br/>for the West. We're built for India.</h2>
+      <p class="s-sub">No other tool in the world combines Zomato, Swiggy, WhatsApp-first alerts and smart routing in one platform.</p>
+    </div>
+    <div class="comp-scroll reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="you">Ratinova ₹3K/mo</th>
+            <th>tech-dev.in ₹2.5K/mo</th>
+            <th>NiceJob $75/mo</th>
+            <th>BrightLocal $44/mo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Smart review routing</td>
+            <td class="you"><span class="tick">✓</span> Yes</td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="partial">~</span> Partial</td>
+            <td><span class="cross">✗</span> No</td>
+          </tr>
+          <tr>
+            <td>WhatsApp-first alerts</td>
+            <td class="you"><span class="tick">✓</span> Yes</td>
+            <td><span class="tick">✓</span> Yes</td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="cross">✗</span> No</td>
+          </tr>
+          <tr>
+            <td>Zomato + Swiggy reviews</td>
+            <td class="you"><span class="tick">✓</span> Yes</td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="cross">✗</span> No</td>
+          </tr>
+          <tr>
+            <td>AI reply suggestions</td>
+            <td class="you"><span class="tick">✓</span> All plans</td>
+            <td><span class="tick">✓</span> Yes</td>
+            <td><span class="partial">~</span> Premium only</td>
+            <td><span class="partial">~</span> Partial</td>
+          </tr>
+          <tr>
+            <td>Customer database</td>
+            <td class="you"><span class="tick">✓</span> Yes</td>
+            <td><span class="tick">✓</span> Yes</td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="cross">✗</span> No</td>
+          </tr>
+          <tr>
+            <td>WhatsApp campaigns</td>
+            <td class="you"><span class="tick">✓</span> Yes</td>
+            <td><span class="tick">✓</span> Yes</td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="cross">✗</span> No</td>
+          </tr>
+          <tr>
+            <td>Priced for India</td>
+            <td class="you"><span class="tick">✓</span> ₹3,000/mo</td>
+            <td><span class="tick">✓</span> ₹2,499/mo</td>
+            <td><span class="cross">✗</span> ₹6,200/mo</td>
+            <td><span class="cross">✗</span> ₹3,600/mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing" style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:0">
+      <div class="s-tag">Pricing</div>
+      <h2 class="s-title">Simple pricing.<br/>Built for Indian restaurants.</h2>
+      <p class="s-sub" style="margin:0 auto">One plan. All 10 features. Founding partner price locked in forever.</p>
+    </div>
+    <div class="pricing-row">
+      <div class="plan plan-free reveal">
+        <div class="plan-name">Free trial</div>
+        <div class="plan-price">₹0 <span>/ 14 days</span></div>
+        <div class="plan-note">No card needed. No commitment.</div>
+        <ul class="plan-feats">
+          <li>Full access to all 10 features</li>
+          <li>QR code setup included</li>
+          <li>Personal setup help from Kunal</li>
+          <li>WhatsApp alerts activated</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <button class="plan-cta" onclick="scrollTo('waitlist')">Start free trial</button>
+      </div>
+      <div class="plan plan-main reveal">
+        <div class="plan-hot">⭐ Founding partner price</div>
+        <div class="plan-name">Full platform</div>
+        <div class="plan-price">₹3,000 <span>/ month</span></div>
+        <div class="plan-note">Price locked in forever. Never goes up.</div>
+        <ul class="plan-feats">
+          <li>QR code review collection</li>
+          <li>Smart routing — catch bad reviews privately</li>
+          <li>WhatsApp + SMS review requests</li>
+          <li>Instant WhatsApp alerts — all platforms</li>
+          <li>AI reply suggestions — 3 per review</li>
+          <li>WhatsApp promotional campaigns</li>
+          <li>Weekly WhatsApp Monday report</li>
+          <li>Dashboard — Google + Zomato + Swiggy + Facebook</li>
+          <li>Customer database — auto-built from QR scans</li>
+          <li>Analytics — scans, requests, conversion, rating trend</li>
+        </ul>
+        <button class="plan-cta" onclick="scrollTo('waitlist')">Join as founding partner</button>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:18px;font-size:12px;color:var(--dim)">
+      ⚠ Only 10 founding restaurant spots in Hyderabad. Founding price is locked for life.
+    </div>
+  </div>
+</section>
+
+<!-- CTA FORM -->
+<section class="cta-section" id="waitlist">
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal">
+    <div class="s-tag" style="display:block;text-align:center">Get early access</div>
+    <h2>Join as a founding partner.<br/>First 10 restaurants only.</h2>
+    <p>14 days completely free. No card needed.<br/>Setup in 2 minutes. Price locked forever.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="text" id="nameInp" placeholder="Your restaurant name"/>
+      <input class="cta-input" type="tel" id="phoneInp" placeholder="WhatsApp number" style="flex:1;min-width:200px"/>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:10px">
+      <button class="cta-btn" onclick="submitForm()">Get founding partner access →</button>
+    </div>
+    <div class="cta-note">By submitting you agree to be contacted on WhatsApp. No spam.</div>
+    <div class="cta-platforms">
+      <span class="plat-tag">✓ Google</span>
+      <span class="plat-tag">✓ Zomato</span>
+      <span class="plat-tag">✓ Swiggy</span>
+      <span class="plat-tag">✓ Facebook</span>
+      <span class="plat-tag">✓ WhatsApp-first</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-tag">FAQ</div>
+      <h2 class="s-title">Questions you<br/>probably have</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Is it ready to use right now? <div class="faq-toggle">+</div></div>
+        <div class="faq-a">We are in the final stage of building the platform and onboarding founding restaurant partners in Hyderabad. Founding partners get first access when we go live, a locked-in price forever, and their feedback directly shapes the product.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">How does setup work? <div class="faq-toggle">+</div></div>
+        <div class="faq-a">I personally set everything up for you. We connect your Google Business Profile, generate your branded QR code, and you print it and place it on your table. The whole thing takes 2 minutes. No technical knowledge needed whatsoever.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Can customers still go directly to Google and write a bad review? <div class="faq-toggle">+</div></div>
+        <div class="faq-a">Yes — smart routing only works when customers go through your QR code. But here's the math: our system floods your listing with positive reviews from the happy majority who never posted before, completely changing your overall rating. You also get instant alerts for any review that lands publicly so you can respond immediately.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Why does it include Zomato and Swiggy? <div class="faq-toggle">+</div></div>
+        <div class="faq-a">Because no competitor in the world does this yet — and Indian restaurant owners care about Zomato ratings as much as Google. Every Western competitor was built for the US market where Zomato doesn't exist. We're built exclusively for India.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">What happens after the 14-day free trial? <div class="faq-toggle">+</div></div>
+        <div class="faq-a">After 14 days, if you want to continue it's ₹3,000/month — locked in forever at the founding partner price. If you decide not to continue, cancel with one click. No questions, no charges, no awkward calls.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Why only 10 founding restaurants? <div class="faq-toggle">+</div></div>
+        <div class="faq-a">Because we want to give each founding restaurant personal attention — setting it up ourselves, checking in every week, making sure it works perfectly. We cannot do that for 100 restaurants at once. The 10-restaurant limit is real, not a sales tactic.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ratinova</div>
+  <div class="footer-links">
+    <a href="mailto:kunal@ratinova.com">kunal@ratinova.com</a>
+    <a href="https://wa.me/919999999999">WhatsApp us</a>
+  </div>
+  <div class="footer-right">© 2025 Ratinova. Built for Indian restaurants. Hyderabad, India.</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/919999999999?text=Hi Kunal, I want to join as a founding partner for Ratinova" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Submitted! Kunal will WhatsApp you within 2 hours.</div>
+
+<script>
+function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+function toggleFaq(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+
+function submitForm(){
+  const name=document.getElementById('nameInp').value.trim();
+  const phone=document.getElementById('phoneInp').value.trim();
+  if(!name||!phone){alert('Please enter your restaurant name and WhatsApp number.');return;}
+  const toast=document.getElementById('toast');
+  toast.classList.add('show');
+  document.getElementById('nameInp').value='';
+  document.getElementById('phoneInp').value='';
+  setTimeout(()=>toast.classList.remove('show'),4000);
+  // Send to WhatsApp API or Google Sheets in production
+  console.log('Lead:',{name,phone});
+}
+
+// Scroll reveal
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Active nav link
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  nav.style.background=window.scrollY>50?'rgba(5,5,8,0.95)':'rgba(5,5,8,0.7)';
+});
+</script>
+</body>
+</html>
