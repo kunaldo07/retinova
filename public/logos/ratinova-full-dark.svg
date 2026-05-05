@@ -1,0 +1,24 @@
+<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- icon -->
+  <rect width="120" height="120" rx="28" fill="#050508"/>
+  <rect width="120" height="120" rx="28" fill="url(#full-dark-bg)"/>
+  <rect x="1" y="1" width="118" height="118" rx="27" stroke="#00E87A" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- bars -->
+  <rect x="18"  y="78"  width="17" height="27" rx="5" fill="#00E87A" opacity="0.28"/>
+  <rect x="43"  y="62"  width="17" height="43" rx="5" fill="#00E87A" opacity="0.55"/>
+  <rect x="68"  y="41"  width="17" height="64" rx="5" fill="#00E87A" opacity="0.88"/>
+
+  <!-- star -->
+  <path d="M96 14 L99 22.5 L108 22.5 L101 27.5 L104 36 L96 31 L88 36 L91 27.5 L84 22.5 L93 22.5 Z" fill="#00E87A"/>
+
+  <!-- wordmark -->
+  <text x="144" y="78" font-family="Syne, system-ui, sans-serif" font-weight="800" font-size="56" fill="#F0F0F5" letter-spacing="-1.5">Ratinova</text>
+
+  <defs>
+    <linearGradient id="full-dark-bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00E87A" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+</svg>

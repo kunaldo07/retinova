@@ -1,0 +1,11 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- no background — transparent -->
+
+  <!-- rising bars -->
+  <rect x="32" y="132" width="28" height="44"  rx="8" fill="#00E87A" opacity="0.35"/>
+  <rect x="72" y="104" width="28" height="72"  rx="8" fill="#00E87A" opacity="0.65"/>
+  <rect x="112" y="68" width="28" height="108" rx="8" fill="#00E87A"/>
+
+  <!-- star -->
+  <path d="M158 24 L163 38.5 L178 38.5 L166.5 47.5 L171.5 62 L158 53 L144.5 62 L149.5 47.5 L138 38.5 L153 38.5 Z" fill="#00E87A"/>
+</svg>

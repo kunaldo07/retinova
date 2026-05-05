@@ -1,0 +1,6 @@
+<svg width="340" height="64" viewBox="0 0 340 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- green dot -->
+  <circle cx="10" cy="32" r="10" fill="#00C068"/>
+  <!-- wordmark -->
+  <text x="30" y="46" font-family="Syne, system-ui, sans-serif" font-weight="800" font-size="44" fill="#050508" letter-spacing="-1.2">Ratinova</text>
+</svg>

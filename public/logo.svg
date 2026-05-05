@@ -1,0 +1,23 @@
+<svg width="180" height="44" viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- icon square -->
+  <rect width="44" height="44" rx="12" fill="#050508"/>
+  <rect width="44" height="44" rx="12" fill="url(#logo-bg)" opacity="0.9"/>
+
+  <!-- rising bars -->
+  <rect x="7" y="29" width="5.5" height="9" rx="1.8" fill="#00E87A" opacity="0.3"/>
+  <rect x="15.5" y="23" width="5.5" height="15" rx="1.8" fill="#00E87A" opacity="0.55"/>
+  <rect x="24" y="15" width="5.5" height="23" rx="1.8" fill="#00E87A" opacity="0.85"/>
+
+  <!-- star -->
+  <path d="M35.5 6 L36.8 9.8 L40.8 9.8 L37.6 12.2 L38.9 16 L35.5 13.6 L32.1 16 L33.4 12.2 L30.2 9.8 L34.2 9.8 Z" fill="#00E87A"/>
+
+  <!-- wordmark -->
+  <text x="56" y="30" font-family="Syne, system-ui, sans-serif" font-weight="800" font-size="22" fill="#F0F0F5" letter-spacing="-0.6">Ratinova</text>
+
+  <defs>
+    <linearGradient id="logo-bg" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00E87A" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+</svg>

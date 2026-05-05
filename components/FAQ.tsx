@@ -16,8 +16,8 @@ const faqs = [
     a: "Yes — smart routing only works when customers go through your QR code. But here's the math: our system floods your listing with positive reviews from the happy majority who never posted before, completely changing your overall rating. You also get instant alerts for any review that lands publicly so you can respond immediately.",
   },
   {
-    q: "Why does it include Zomato and Swiggy?",
-    a: "Because no competitor in the world does this yet — and Indian restaurant owners care about Zomato ratings as much as Google. Every Western competitor was built for the US market where Zomato doesn't exist. We're built exclusively for India.",
+    q: "What about Zomato and Swiggy reviews?",
+    a: "Honest answer: Zomato and Swiggy do not have a public API for reviews, so we cannot pull them into the dashboard right now. We focus on Google (which drives the most new customer decisions) and Facebook. Zomato and Swiggy dashboard integration is on our roadmap and founding partners will get it the moment it is ready.",
   },
   {
     q: "What happens after the 14-day free trial?",
