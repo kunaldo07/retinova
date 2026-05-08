@@ -27,17 +27,17 @@ export default function Home() {
       <nav>
         <a href="/" className="logo">
           {/* Rating Graph icon */}
-          <svg width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
-            <rect width="44" height="44" rx="11" fill="rgba(0,232,122,0.1)"/>
-            <rect width="44" height="44" rx="11" fill="url(#nav-logo-bg)"/>
-            <rect x="7"  y="30" width="5.5" height="8"  rx="1.8" fill="#00E87A" opacity="0.3"/>
-            <rect x="15.5" y="24" width="5.5" height="14" rx="1.8" fill="#00E87A" opacity="0.6"/>
-            <rect x="24" y="16" width="5.5" height="22" rx="1.8" fill="#00E87A" opacity="0.9"/>
-            <path d="M35.5 6 L36.8 9.8 L40.8 9.8 L37.6 12.2 L38.9 16 L35.5 13.6 L32.1 16 L33.4 12.2 L30.2 9.8 L34.2 9.8 Z" fill="#00E87A"/>
+          <svg width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+            <rect width="44" height="44" rx="11" fill="rgba(0,232,122,0.1)" />
+            <rect width="44" height="44" rx="11" fill="url(#nav-logo-bg)" />
+            <rect x="7" y="30" width="5.5" height="8" rx="1.8" fill="#00E87A" opacity="0.3" />
+            <rect x="15.5" y="24" width="5.5" height="14" rx="1.8" fill="#00E87A" opacity="0.6" />
+            <rect x="24" y="16" width="5.5" height="22" rx="1.8" fill="#00E87A" opacity="0.9" />
+            <path d="M35.5 6 L36.8 9.8 L40.8 9.8 L37.6 12.2 L38.9 16 L35.5 13.6 L32.1 16 L33.4 12.2 L30.2 9.8 L34.2 9.8 Z" fill="#00E87A" />
             <defs>
               <linearGradient id="nav-logo-bg" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#00E87A" stopOpacity="0.08"/>
-                <stop offset="100%" stopColor="#00E87A" stopOpacity="0.01"/>
+                <stop offset="0%" stopColor="#00E87A" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#00E87A" stopOpacity="0.01" />
               </linearGradient>
             </defs>
           </svg>
@@ -203,6 +203,43 @@ export default function Home() {
                 More 5-star reviews land every week. You get WhatsApp alerts the second any review posts. AI writes your reply in 10 seconds. Your rating goes up on autopilot.
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DASHBOARD MOCKUP ────────────────────────── */}
+      <section className="section dash-section">
+        <div className="wrap">
+          <div className="reveal" style={{ textAlign: "center" }}>
+            <div className="s-tag">Your dashboard</div>
+            <h2 className="s-title">
+              Every review. Every alert.
+              <br />
+              One clean dashboard.
+            </h2>
+            <p className="s-sub">
+              See your Google rating climb in real time, get WhatsApp notifications the second a review lands,
+              and manage everything from a single screen — no spreadsheets, no tab-switching.
+            </p>
+          </div>
+          {/* Browser-frame mockup */}
+          <div className="dash-frame reveal">
+            <img
+              src="/dashboard-mockup.svg"
+              alt="Ratinova dashboard preview"
+              className="dash-img"
+              width={960}
+              height={580}
+            />
+          </div>
+          {/* Feature callouts below mockup */}
+          <div className="dash-pills reveal">
+            <div className="dash-pill"><span className="dash-pill-dot" />Live Google review feed</div>
+            <div className="dash-pill"><span className="dash-pill-dot" />Rating trend graph</div>
+            <div className="dash-pill"><span className="dash-pill-dot" />Smart routing toggle</div>
+            <div className="dash-pill"><span className="dash-pill-dot" />WhatsApp instant alerts</div>
+            <div className="dash-pill"><span className="dash-pill-dot" />QR code manager</div>
+            <div className="dash-pill"><span className="dash-pill-dot" />Weekly performance summary</div>
           </div>
         </div>
       </section>
@@ -392,16 +429,16 @@ export default function Home() {
           </div>
           <div className="feat-grid">
             {[
-              { n: "01", Icon: QrCode,        title: "QR Code Review Collection",    desc: "Branded QR code for your table. Customer scans, taps a star. No app. Works on every phone.", badge: null },
-              { n: "02", Icon: GitFork,       title: "Smart Review Routing",         desc: "4–5 stars go to Google. 1–3 stars come to you privately on WhatsApp before they go public.", badge: null },
-              { n: "03", Icon: MessageCircle, title: "WhatsApp & SMS Review Requests",desc: "Auto-sent 2 hours after visit with a direct Google review link. No manual follow-up needed.", badge: "wa" },
-              { n: "04", Icon: Bell,          title: "Instant WhatsApp Alerts",      desc: "Real-time WhatsApp notification the moment any review is posted on Google or Facebook.", badge: "wa" },
-              { n: "05", Icon: Bot,           title: "AI Reply Suggestions",         desc: "3 professional reply options for every review. Pick one, send in 10 seconds.", badge: null },
-              { n: "06", Icon: Megaphone,     title: "WhatsApp Campaigns",           desc: "Send bulk promotional messages to your entire customer database. Festival offers, new menu, weekend specials.", badge: "wa" },
-              { n: "07", Icon: ClipboardList, title: "Weekly WhatsApp Report",       desc: "Every Monday at 9am — new reviews, rating changes, negative ones caught privately. All on WhatsApp.", badge: "exclusive" },
-              { n: "08", Icon: LayoutDashboard,title: "Review Dashboard",            desc: "Google + Facebook reviews in one screen. Reply to everything from one place without switching apps.", badge: null },
-              { n: "09", Icon: Users,         title: "Customer Database",            desc: "Every QR scan auto-captures name and number. Your customer list grows without you doing anything.", badge: null },
-              { n: "10", Icon: TrendingUp,    title: "Analytics Dashboard",          desc: "Track QR scans, review requests sent, conversion rate, and watch your rating climb week by week.", badge: null },
+              { n: "01", Icon: QrCode, title: "QR Code Review Collection", desc: "Branded QR code for your table. Customer scans, taps a star. No app. Works on every phone.", badge: null },
+              { n: "02", Icon: GitFork, title: "Smart Review Routing", desc: "4–5 stars go to Google. 1–3 stars come to you privately on WhatsApp before they go public.", badge: null },
+              { n: "03", Icon: MessageCircle, title: "WhatsApp & SMS Review Requests", desc: "Auto-sent 2 hours after visit with a direct Google review link. No manual follow-up needed.", badge: "wa" },
+              { n: "04", Icon: Bell, title: "Instant WhatsApp Alerts", desc: "Real-time WhatsApp notification the moment any review is posted on Google or Facebook.", badge: "wa" },
+              { n: "05", Icon: Bot, title: "AI Reply Suggestions", desc: "3 professional reply options for every review. Pick one, send in 10 seconds.", badge: null },
+              { n: "06", Icon: Megaphone, title: "WhatsApp Campaigns", desc: "Send bulk promotional messages to your entire customer database. Festival offers, new menu, weekend specials.", badge: "wa" },
+              { n: "07", Icon: ClipboardList, title: "Weekly WhatsApp Report", desc: "Every Monday at 9am — new reviews, rating changes, negative ones caught privately. All on WhatsApp.", badge: "exclusive" },
+              { n: "08", Icon: LayoutDashboard, title: "Review Dashboard", desc: "Google + Facebook reviews in one screen. Reply to everything from one place without switching apps.", badge: null },
+              { n: "09", Icon: Users, title: "Customer Database", desc: "Every QR scan auto-captures name and number. Your customer list grows without you doing anything.", badge: null },
+              { n: "10", Icon: TrendingUp, title: "Analytics Dashboard", desc: "Track QR scans, review requests sent, conversion rate, and watch your rating climb week by week.", badge: null },
             ].map((f) => (
               <div className="feat-card reveal" key={f.n}>
                 <div className="feat-n">{f.n}</div>
@@ -421,7 +458,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ────────────────────────────── */}
-      <section className="section testimonials-bg">
+      {/* <section className="section testimonials-bg">
         <div className="wrap">
           <div className="reveal">
             <div className="s-tag">What restaurant owners say</div>
@@ -493,7 +530,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── PROOF / RESEARCH STATS ──────────────────── */}
       <section
@@ -523,7 +560,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="quote-block reveal">
+          {/* <div className="quote-block reveal">
             <div className="q-mark">&ldquo;</div>
             <div className="q-text">
               When we added a QR code review system across our 10 restaurants,{" "}
@@ -535,12 +572,12 @@ export default function Home() {
               — David Orr, President &amp; Owner, Parched Hospitality Group (10
               locations, UK)
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* ── COMPETITOR COMPARISON ───────────────────── */}
-      <section className="section comp-bg">
+      {/* <section className="section comp-bg">
         <div className="wrap">
           <div className="reveal">
             <div className="s-tag">How we compare</div>
@@ -568,15 +605,15 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  ["Smart review routing",       "✓ Yes",         "~ Partial",     "✓ Yes",          "✓ Yes"],
-                  ["WhatsApp alerts",            "✓ Yes",         "✓ Yes",         "✗ Email only",   "✗ Email only"],
-                  ["WhatsApp review requests",   "✓ Yes",         "✓ Yes",         "✗ SMS/Email",    "✗ Email only"],
-                  ["AI reply suggestions",       "✓ All plans",   "✓ Yes",         "✗ No",           "✓ Yes"],
-                  ["WhatsApp campaigns",         "✓ Yes",         "✓ Yes",         "✗ No",           "✗ No"],
-                  ["Weekly WhatsApp report",     "✓ Yes",         "✗ No",          "✗ No",           "✗ No"],
-                  ["Customer database",          "✓ Yes",         "✓ Yes",         "✗ No",           "✗ No"],
-                  ["Personal founder setup",     "✓ Yes",         "✗ No",          "~ Email only",   "✗ No"],
-                  ["Price (monthly)",            "✓ ₹3,000",      "✓ ₹2,499",      "✗ ~₹4,100",     "✗ ~₹4,100"],
+                  ["Smart review routing", "✓ Yes", "~ Partial", "✓ Yes", "✓ Yes"],
+                  ["WhatsApp alerts", "✓ Yes", "✓ Yes", "✗ Email only", "✗ Email only"],
+                  ["WhatsApp review requests", "✓ Yes", "✓ Yes", "✗ SMS/Email", "✗ Email only"],
+                  ["AI reply suggestions", "✓ All plans", "✓ Yes", "✗ No", "✓ Yes"],
+                  ["WhatsApp campaigns", "✓ Yes", "✓ Yes", "✗ No", "✗ No"],
+                  ["Weekly WhatsApp report", "✓ Yes", "✗ No", "✗ No", "✗ No"],
+                  ["Customer database", "✓ Yes", "✓ Yes", "✗ No", "✗ No"],
+                  ["Personal founder setup", "✓ Yes", "✗ No", "~ Email only", "✗ No"],
+                  ["Price (monthly)", "✓ ₹3,000", "✓ ₹2,499", "✗ ~₹4,100", "✗ ~₹4,100"],
                 ].map(([feature, us, ...rest], i) => (
                   <tr key={i}>
                     <td>{feature}</td>
@@ -603,10 +640,10 @@ export default function Home() {
             Based on publicly available information from each company&apos;s website as of May 2026.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* ── PRICING ─────────────────────────────────── */}
-      <section
+      {/* <section
         className="section"
         id="pricing"
         style={{ borderTop: "1px solid var(--border)" }}
@@ -680,10 +717,10 @@ export default function Home() {
             Founding price is locked for life.
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── FOUNDER BOX ─────────────────────────────── */}
-      <section className="section" style={{ borderTop: "1px solid var(--border)", paddingBottom: 0 }}>
+      {/* <section className="section" style={{ borderTop: "1px solid var(--border)", paddingBottom: 0 }}>
         <div className="wrap">
           <div className="founder-box reveal">
             <div className="founder-avatar">👨‍💻</div>
@@ -700,7 +737,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── BOTTOM CTA + FORM ───────────────────────── */}
       <section className="cta-section" id="waitlist">
@@ -767,13 +804,13 @@ export default function Home() {
 
       {/* ── FOOTER ──────────────────────────────────── */}
       <footer>
-        <div className="footer-logo" style={{display:"flex",alignItems:"center",gap:"10px"}}>
+        <div className="footer-logo" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <svg width="28" height="28" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="44" height="44" rx="11" fill="rgba(0,232,122,0.1)"/>
-            <rect x="7"  y="30" width="5.5" height="8"  rx="1.8" fill="#00E87A" opacity="0.3"/>
-            <rect x="15.5" y="24" width="5.5" height="14" rx="1.8" fill="#00E87A" opacity="0.6"/>
-            <rect x="24" y="16" width="5.5" height="22" rx="1.8" fill="#00E87A" opacity="0.9"/>
-            <path d="M35.5 6 L36.8 9.8 L40.8 9.8 L37.6 12.2 L38.9 16 L35.5 13.6 L32.1 16 L33.4 12.2 L30.2 9.8 L34.2 9.8 Z" fill="#00E87A"/>
+            <rect width="44" height="44" rx="11" fill="rgba(0,232,122,0.1)" />
+            <rect x="7" y="30" width="5.5" height="8" rx="1.8" fill="#00E87A" opacity="0.3" />
+            <rect x="15.5" y="24" width="5.5" height="14" rx="1.8" fill="#00E87A" opacity="0.6" />
+            <rect x="24" y="16" width="5.5" height="22" rx="1.8" fill="#00E87A" opacity="0.9" />
+            <path d="M35.5 6 L36.8 9.8 L40.8 9.8 L37.6 12.2 L38.9 16 L35.5 13.6 L32.1 16 L33.4 12.2 L30.2 9.8 L34.2 9.8 Z" fill="#00E87A" />
           </svg>
           Ratinova
         </div>

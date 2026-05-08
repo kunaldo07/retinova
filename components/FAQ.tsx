@@ -51,7 +51,7 @@ export default function FAQ() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`faq-item reveal${open === i ? " open" : ""}`}
+              className={`faq-item${open === i ? " open" : ""}`}
             >
               <button className="faq-q" onClick={() => toggle(i)}>
                 {faq.q}

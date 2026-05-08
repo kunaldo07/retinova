@@ -1,0 +1,274 @@
+<svg width="960" height="580" viewBox="0 0 960 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00E87A" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00E87A" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00C068" stop-opacity="0.04"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="windowClip">
+      <rect width="960" height="580" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <!-- Window frame -->
+  <rect width="960" height="580" rx="14" fill="#0D0D16"/>
+
+  <!-- Title bar -->
+  <rect width="960" height="40" rx="14" fill="#13131E"/>
+  <rect y="14" width="960" height="26" fill="#13131E"/>
+  <!-- Traffic lights -->
+  <circle cx="22" cy="20" r="5.5" fill="#FF5F57"/>
+  <circle cx="40" cy="20" r="5.5" fill="#FFBD2E"/>
+  <circle cx="58" cy="20" r="5.5" fill="#28C840"/>
+  <!-- URL bar -->
+  <rect x="220" y="9" width="520" height="22" rx="6" fill="#0A0A13"/>
+  <text x="480" y="24" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" fill="rgba(240,240,245,0.3)" text-anchor="middle">app.ratinova.com/dashboard</text>
+
+  <!-- Sidebar bg -->
+  <rect x="0" y="40" width="188" height="540" fill="#0A0A13"/>
+  <rect x="187" y="40" width="1" height="540" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- Sidebar logo -->
+  <circle cx="24" cy="68" r="8" fill="#00E87A"/>
+  <text x="39" y="73" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="13" font-weight="700" fill="#F0F0F5">Ratinova</text>
+
+  <!-- Restaurant tag -->
+  <rect x="12" y="84" width="163" height="20" rx="5" fill="rgba(255,255,255,0.04)"/>
+  <text x="20" y="97" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.35)">Spice Garden · Hyderabad</text>
+
+  <!-- Nav: Dashboard (active) -->
+  <rect x="10" y="116" width="168" height="32" rx="8" fill="rgba(0,232,122,0.1)"/>
+  <rect x="20" y="126" width="5" height="5" rx="1" fill="#00E87A"/>
+  <rect x="27" y="126" width="5" height="5" rx="1" fill="#00E87A"/>
+  <rect x="20" y="133" width="5" height="5" rx="1" fill="#00E87A"/>
+  <rect x="27" y="133" width="5" height="5" rx="1" fill="#00E87A"/>
+  <text x="40" y="137" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" font-weight="600" fill="#00E87A">Dashboard</text>
+
+  <!-- Nav items -->
+  <circle cx="22" cy="166" r="5" fill="none" stroke="rgba(240,240,245,0.25)" stroke-width="1.2"/>
+  <path d="M22 163 L22.8 165.5 L25.5 165.5 L23.3 167 L24.1 169.5 L22 168 L19.9 169.5 L20.7 167 L18.5 165.5 L21.2 165.5 Z" fill="rgba(240,240,245,0.25)"/>
+  <text x="36" y="170" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" fill="rgba(240,240,245,0.4)">Reviews</text>
+
+  <rect x="17" y="182" width="10" height="10" rx="2" fill="none" stroke="rgba(240,240,245,0.2)" stroke-width="1.2"/>
+  <rect x="19" y="184" width="2" height="2" fill="rgba(240,240,245,0.2)"/>
+  <rect x="22" y="184" width="3" height="3" fill="rgba(240,240,245,0.2)"/>
+  <text x="36" y="191" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" fill="rgba(240,240,245,0.4)">QR Codes</text>
+
+  <path d="M17 208 L27 208 M17 204 L27 204 M17 212 L22 212" stroke="rgba(240,240,245,0.2)" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="36" y="212" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" fill="rgba(240,240,245,0.4)">Smart Routing</text>
+
+  <path d="M17 228 Q22 224 27 228 Q22 236 17 228 Z" fill="none" stroke="rgba(240,240,245,0.2)" stroke-width="1.2"/>
+  <text x="36" y="232" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" fill="rgba(240,240,245,0.4)">WhatsApp</text>
+
+  <path d="M17 248 L27 248 M17 252 L24 252 M17 256 L20 256" stroke="rgba(240,240,245,0.2)" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="36" y="256" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" fill="rgba(240,240,245,0.4)">Reports</text>
+
+  <path d="M22 272 m-6 0 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0 M22 276 L22 280 M22 264 L22 268" stroke="rgba(240,240,245,0.2)" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="36" y="276" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" fill="rgba(240,240,245,0.4)">Settings</text>
+
+  <!-- Sidebar bottom status -->
+  <rect x="10" y="500" width="168" height="28" rx="8" fill="rgba(0,232,122,0.08)" stroke="rgba(0,232,122,0.15)" stroke-width="1"/>
+  <circle cx="24" cy="514" r="4" fill="#00E87A"/>
+  <text x="35" y="518" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="600" fill="#00E87A">Plan: Active</text>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <rect x="188" y="40" width="772" height="540" fill="#080810"/>
+
+  <!-- Top header -->
+  <text x="210" y="72" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="17" font-weight="700" fill="#F0F0F5">Dashboard</text>
+  <text x="210" y="87" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" fill="rgba(240,240,245,0.3)">Welcome back — here's how Spice Garden is performing today</text>
+
+  <!-- Avatar -->
+  <circle cx="930" cy="67" r="16" fill="#1A1A2E"/>
+  <text x="930" y="72" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="12" font-weight="700" fill="#00E87A" text-anchor="middle">SG</text>
+
+  <!-- ── STAT CARDS ── -->
+
+  <!-- Card 1: Total Reviews -->
+  <rect x="210" y="102" width="168" height="90" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="226" y="122" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" font-weight="700" fill="rgba(240,240,245,0.3)" letter-spacing="0.1em">TOTAL REVIEWS</text>
+  <text x="226" y="154" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="30" font-weight="700" fill="#F0F0F5">247</text>
+  <rect x="226" y="164" width="78" height="18" rx="4" fill="rgba(0,232,122,0.1)"/>
+  <text x="265" y="176" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="#00E87A" text-anchor="middle">↑ 18 this month</text>
+
+  <!-- Card 2: Avg Rating -->
+  <rect x="390" y="102" width="168" height="90" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="406" y="122" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" font-weight="700" fill="rgba(240,240,245,0.3)" letter-spacing="0.1em">AVG RATING</text>
+  <text x="406" y="150" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="16" fill="#00E87A">★★★★★</text>
+  <text x="406" y="170" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="26" font-weight="700" fill="#F0F0F5">4.8</text>
+  <text x="440" y="170" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" fill="rgba(240,240,245,0.3)">/ 5.0</text>
+  <text x="406" y="184" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(0,232,122,0.6)">↑ was 4.3 last month</text>
+
+  <!-- Card 3: New This Week (highlighted) -->
+  <rect x="570" y="102" width="168" height="90" rx="10" fill="url(#cardGreen)" stroke="rgba(0,232,122,0.18)" stroke-width="1"/>
+  <text x="586" y="122" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" font-weight="700" fill="rgba(0,232,122,0.5)" letter-spacing="0.1em">NEW THIS WEEK</text>
+  <text x="586" y="158" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="34" font-weight="700" fill="#00E87A">+12</text>
+  <text x="586" y="174" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.4)">reviews via QR code</text>
+  <text x="586" y="186" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(0,232,122,0.5)">↑ 3× vs last week</text>
+
+  <!-- Card 4: Smart Routing -->
+  <rect x="750" y="102" width="168" height="90" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="766" y="122" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" font-weight="700" fill="rgba(240,240,245,0.3)" letter-spacing="0.1em">SMART ROUTING</text>
+  <text x="766" y="144" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" fill="rgba(240,240,245,0.6)">Protecting your rating</text>
+  <!-- Toggle pill -->
+  <rect x="766" y="152" width="42" height="22" rx="11" fill="#00E87A"/>
+  <circle cx="797" cy="163" r="8.5" fill="white"/>
+  <text x="816" y="167" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="700" fill="#00E87A">ON</text>
+  <text x="766" y="184" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.28)">4 negative reviews redirected</text>
+
+  <!-- ── CHART PANEL ── -->
+  <rect x="210" y="208" width="450" height="176" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="228" y="228" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="13" font-weight="700" fill="#F0F0F5">Reviews Over Time</text>
+  <text x="228" y="242" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.28)">Last 30 days · Google</text>
+
+  <!-- Legend dot -->
+  <circle cx="603" cy="226" r="4" fill="#00E87A"/>
+  <text x="612" y="230" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.35)">Google</text>
+
+  <!-- Grid lines -->
+  <line x1="228" y1="256" x2="645" y2="256" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="228" y1="276" x2="645" y2="276" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="228" y1="296" x2="645" y2="296" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="228" y1="316" x2="645" y2="316" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="228" y1="336" x2="645" y2="336" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="228" y1="356" x2="645" y2="356" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Y axis labels -->
+  <text x="218" y="260" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="8" fill="rgba(240,240,245,0.2)" text-anchor="end">10</text>
+  <text x="218" y="300" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="8" fill="rgba(240,240,245,0.2)" text-anchor="end">5</text>
+  <text x="218" y="360" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="8" fill="rgba(240,240,245,0.2)" text-anchor="end">0</text>
+
+  <!-- Area fill -->
+  <path d="M228 348 C248 344 268 342 288 338 C308 334 328 328 348 318 C368 308 388 296 408 280 C428 268 448 264 468 258 C488 252 508 250 528 247 C548 244 568 242 588 240 C608 238 625 236 640 234 L645 234 L645 360 L228 360 Z" fill="url(#chartFill)"/>
+  <!-- Chart line -->
+  <path d="M228 348 C248 344 268 342 288 338 C308 334 328 328 348 318 C368 308 388 296 408 280 C428 268 448 264 468 258 C488 252 508 250 528 247 C548 244 568 242 588 240 C608 238 625 236 640 234" stroke="#00E87A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Glow dot at end -->
+  <circle cx="640" cy="234" r="10" fill="#00E87A" opacity="0.15"/>
+  <circle cx="640" cy="234" r="4" fill="#00E87A"/>
+
+  <!-- Tooltip bubble -->
+  <rect x="600" y="216" width="70" height="30" rx="6" fill="#1A1A2E" stroke="rgba(0,232,122,0.3)" stroke-width="1"/>
+  <text x="635" y="229" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="#00E87A" text-anchor="middle" font-weight="700">+12 today</text>
+  <text x="635" y="241" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="8" fill="rgba(240,240,245,0.4)" text-anchor="middle">May 9</text>
+  <polygon points="630,246 640,246 635,252" fill="#1A1A2E"/>
+
+  <!-- X axis labels -->
+  <text x="228" y="374" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)">Apr 10</text>
+  <text x="345" y="374" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)">Apr 20</text>
+  <text x="462" y="374" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)">Apr 30</text>
+  <text x="600" y="374" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)">May 9</text>
+
+  <!-- ── RECENT REVIEWS PANEL ── -->
+  <rect x="672" y="208" width="246" height="176" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="690" y="228" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="13" font-weight="700" fill="#F0F0F5">Recent Reviews</text>
+  <text x="690" y="242" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.28)">via Google · last 24h</text>
+
+  <!-- Google icon placeholder -->
+  <circle cx="902" cy="224" r="10" fill="#1A1A2E"/>
+  <text x="902" y="228" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="#4285F4" text-anchor="middle" font-weight="700">G</text>
+
+  <!-- Review 1 -->
+  <circle cx="702" cy="264" r="12" fill="#1E1E30"/>
+  <text x="702" y="268" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="700" fill="#F0F0F5" text-anchor="middle">P</text>
+  <text x="720" y="260" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="600" fill="#F0F0F5">Priya S.</text>
+  <text x="720" y="272" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="#00E87A">★★★★★</text>
+  <text x="876" y="264" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)" text-anchor="end">2m ago</text>
+  <text x="690" y="284" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.38)">Amazing food, will come again!</text>
+  <line x1="690" y1="295" x2="906" y2="295" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+  <!-- Review 2 -->
+  <circle cx="702" cy="316" r="12" fill="#1E1E30"/>
+  <text x="702" y="320" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="700" fill="#F0F0F5" text-anchor="middle">R</text>
+  <text x="720" y="312" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="600" fill="#F0F0F5">Rahul M.</text>
+  <text x="720" y="324" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="#00E87A">★★★★★</text>
+  <text x="876" y="316" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)" text-anchor="end">1h ago</text>
+  <text x="690" y="336" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.38)">Best biryani in the city, love it!</text>
+  <line x1="690" y1="348" x2="906" y2="348" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+  <!-- Review 3 -->
+  <circle cx="702" cy="366" r="12" fill="#1E1E30"/>
+  <text x="702" y="370" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="700" fill="#F0F0F5" text-anchor="middle">A</text>
+  <text x="720" y="362" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="600" fill="#F0F0F5">Anjali K.</text>
+  <text x="720" y="374" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="#00E87A">★★★★</text>
+  <text x="876" y="366" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)" text-anchor="end">3h ago</text>
+  <text x="690" y="382" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.38)">Great service and ambiance</text>
+
+  <!-- ── BOTTOM ROW ── -->
+
+  <!-- QR Code card -->
+  <rect x="210" y="398" width="220" height="120" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="228" y="418" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="13" font-weight="700" fill="#F0F0F5">Your QR Code</text>
+  <text x="228" y="432" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.28)">152 scans · this month</text>
+  <!-- QR pattern -->
+  <rect x="228" y="444" width="52" height="52" rx="6" fill="#13131E" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <rect x="232" y="448" width="14" height="14" rx="2" fill="#00E87A" opacity="0.85"/>
+  <rect x="250" y="448" width="4" height="4" rx="0.5" fill="rgba(240,240,245,0.3)"/>
+  <rect x="256" y="448" width="4" height="4" rx="0.5" fill="rgba(240,240,245,0.3)"/>
+  <rect x="262" y="448" width="14" height="14" rx="2" fill="rgba(240,240,245,0.4)"/>
+  <rect x="232" y="464" width="4" height="4" rx="0.5" fill="rgba(240,240,245,0.3)"/>
+  <rect x="240" y="464" width="4" height="4" rx="0.5" fill="rgba(240,240,245,0.3)"/>
+  <rect x="248" y="464" width="4" height="4" rx="0.5" fill="rgba(240,240,245,0.3)"/>
+  <rect x="256" y="464" width="4" height="4" rx="0.5" fill="#00E87A" opacity="0.6"/>
+  <rect x="264" y="464" width="4" height="4" rx="0.5" fill="rgba(240,240,245,0.3)"/>
+  <rect x="232" y="472" width="14" height="14" rx="2" fill="rgba(240,240,245,0.4)"/>
+  <rect x="250" y="472" width="4" height="4" rx="0.5" fill="rgba(240,240,245,0.3)"/>
+  <rect x="256" y="472" width="4" height="4" rx="0.5" fill="#00E87A" opacity="0.6"/>
+  <rect x="262" y="472" width="14" height="14" rx="2" fill="#00E87A" opacity="0.85"/>
+  <!-- QR text -->
+  <text x="290" y="458" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="11" font-weight="600" fill="#F0F0F5">Spice Garden Table</text>
+  <text x="290" y="471" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.3)">Links to smart routing</text>
+  <rect x="290" y="480" width="88" height="22" rx="6" fill="rgba(0,232,122,0.1)" stroke="rgba(0,232,122,0.2)" stroke-width="1"/>
+  <text x="334" y="494" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" font-weight="600" fill="#00E87A" text-anchor="middle">↓ Download</text>
+
+  <!-- WhatsApp Alerts card -->
+  <rect x="442" y="398" width="218" height="120" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="460" y="418" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="13" font-weight="700" fill="#F0F0F5">WhatsApp Alerts</text>
+  <text x="460" y="432" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.28)">Instant review notifications</text>
+  <!-- Alert 1 -->
+  <rect x="460" y="440" width="182" height="24" rx="6" fill="rgba(0,232,122,0.07)" stroke="rgba(0,232,122,0.15)" stroke-width="1"/>
+  <circle cx="472" cy="452" r="4" fill="#25D366"/>
+  <text x="483" y="456" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.65)">New ★★★★★ from Priya — now</text>
+  <!-- Alert 2 -->
+  <rect x="460" y="470" width="182" height="24" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <circle cx="472" cy="482" r="4" fill="rgba(240,240,245,0.2)"/>
+  <text x="483" y="486" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.35)">New ★★★★ from Anjali — 3h</text>
+  <!-- Alert 3 -->
+  <rect x="460" y="500" width="182" height="24" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <circle cx="472" cy="512" r="4" fill="rgba(240,240,245,0.2)"/>
+  <text x="483" y="516" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.35)">New ★★★★★ from Rahul — 1h</text>
+
+  <!-- Weekly Summary card -->
+  <rect x="672" y="398" width="246" height="120" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="690" y="418" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="13" font-weight="700" fill="#F0F0F5">Weekly Summary</text>
+  <text x="690" y="432" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="10" fill="rgba(240,240,245,0.28)">Sent every Monday · 9am</text>
+  <!-- Mini bar chart -->
+  <rect x="690" y="470" width="14" height="36" rx="3" fill="#00E87A" opacity="0.3"/>
+  <rect x="708" y="460" width="14" height="46" rx="3" fill="#00E87A" opacity="0.45"/>
+  <rect x="726" y="450" width="14" height="56" rx="3" fill="#00E87A" opacity="0.6"/>
+  <rect x="744" y="442" width="14" height="64" rx="3" fill="#00E87A" opacity="0.75"/>
+  <rect x="762" y="444" width="14" height="62" rx="3" fill="#00E87A" opacity="0.75"/>
+  <rect x="780" y="440" width="14" height="66" rx="3" fill="#00E87A" opacity="0.9"/>
+  <rect x="798" y="452" width="14" height="54" rx="3" fill="#00E87A" opacity="0.65"/>
+  <text x="690" y="516" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)">Mon</text>
+  <text x="726" y="516" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)">Wed</text>
+  <text x="762" y="516" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.2)">Fri</text>
+  <text x="836" y="480" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="20" font-weight="700" fill="#00E87A">87</text>
+  <text x="836" y="494" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.3)">reviews</text>
+  <text x="836" y="506" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="9" fill="rgba(240,240,245,0.3)">this month</text>
+
+  <!-- Bottom fade overlay to give "screenshot" feel -->
+  <rect x="188" y="520" width="772" height="60" fill="url(#bottomFade)"/>
+  <defs>
+    <linearGradient id="bottomFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080810" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#080810" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+</svg>
