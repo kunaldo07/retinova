@@ -1,0 +1,150 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg3" cx="60%" cy="45%" r="65%">
+      <stop offset="0%"   stop-color="#061510"/>
+      <stop offset="60%"  stop-color="#060A08"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00E87A" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="chartGlow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%"   stop-color="#00E87A" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="chartFill3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#00E87A" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="greenGrad3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#00C068"/>
+      <stop offset="100%" stop-color="#00E87A"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#00C068"/>
+      <stop offset="100%" stop-color="#00E87A"/>
+    </linearGradient>
+    <linearGradient id="beforeFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#EF4444" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="medGlow">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="smGlow">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="c3"><rect width="1280" height="720"/></clipPath>
+  </defs>
+  <g clip-path="url(#c3)">
+
+  <!-- BG -->
+  <rect width="1280" height="720" fill="url(#bg3)"/>
+
+  <!-- Grid -->
+  <g opacity="0.03">
+    <line x1="0"    y1="120" x2="1280" y2="120" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="240" x2="1280" y2="240" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="360" x2="1280" y2="360" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="480" x2="1280" y2="480" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="600" x2="1280" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="160"  y1="0"   x2="160"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="320"  y1="0"   x2="320"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="480"  y1="0"   x2="480"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="640"  y1="0"   x2="640"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="800"  y1="0"   x2="800"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="960"  y1="0"   x2="960"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="1120" y1="0"   x2="1120" y2="720" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- Ambient glows -->
+  <ellipse cx="900" cy="320" rx="500" ry="380" fill="url(#heroGlow)"/>
+
+  <!-- ── BIG CHART in background (decorative) ── -->
+  <path d="M60 560 C160 540 260 510 360 480 C460 450 520 410 600 370 C680 330 740 300 820 265 C900 230 980 210 1060 188 C1140 166 1200 154 1260 142 L1280 138 L1280 620 L60 620 Z" fill="url(#chartFill3)" opacity="0.5"/>
+  <path d="M60 560 C160 540 260 510 360 480 C460 450 520 410 600 370 C680 330 740 300 820 265 C900 230 980 210 1060 188 C1140 166 1200 154 1260 142" stroke="#00E87A" stroke-width="2.5" fill="none" opacity="0.35" stroke-linecap="round"/>
+
+  <!-- ── LEFT: BEFORE block ── -->
+  <!-- "BEFORE" label -->
+  <rect x="60" y="100" width="120" height="30" rx="8" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)" stroke-width="1"/>
+  <text x="120" y="120" font-family="system-ui" font-size="12" font-weight="700" fill="#EF4444" text-anchor="middle" letter-spacing="0.12em">BEFORE</text>
+
+  <!-- Before rating number - large, faded/red -->
+  <text x="60" y="270" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="150" font-weight="800" fill="rgba(239,68,68,0.35)" letter-spacing="-4">4.1</text>
+
+  <!-- Stars faded -->
+  <text x="64" y="320" font-family="system-ui" font-size="36" fill="rgba(239,68,68,0.3)">★★★★☆</text>
+
+  <!-- Strikethrough line over it -->
+  <rect x="55" y="195" width="320" height="6" rx="3" fill="url(#beforeFade)" transform="rotate(-8, 215, 198)"/>
+
+  <!-- Before sub -->
+  <text x="64" y="360" font-family="system-ui" font-size="14" fill="rgba(240,240,245,0.25)">3 months ago · Spice Garden</text>
+
+  <!-- ── ARROW in center ── -->
+  <g filter="url(#medGlow)" transform="translate(390, 216)">
+    <!-- Arrow body -->
+    <rect width="140" height="20" rx="10" fill="url(#arrowGrad3)"/>
+    <!-- Arrowhead -->
+    <polygon points="140,0 175,10 140,20" fill="#00E87A"/>
+  </g>
+  <text x="480" y="274" font-family="system-ui" font-size="11" font-weight="700" fill="rgba(0,232,122,0.6)" text-anchor="middle" letter-spacing="0.08em">30 DAYS LATER</text>
+
+  <!-- ── RIGHT: AFTER block (the hero) ── -->
+  <!-- "AFTER" label -->
+  <rect x="620" y="100" width="120" height="30" rx="8" fill="rgba(0,232,122,0.12)" stroke="rgba(0,232,122,0.25)" stroke-width="1"/>
+  <text x="680" y="120" font-family="system-ui" font-size="12" font-weight="700" fill="#00E87A" text-anchor="middle" letter-spacing="0.12em">AFTER RATINOVA</text>
+
+  <!-- HUGE after number - the hero element -->
+  <text x="610" y="290" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="188" font-weight="800" fill="#00E87A" letter-spacing="-5" filter="url(#bigGlow)">4.8</text>
+
+  <!-- Stars glowing -->
+  <text x="618" y="338" font-family="system-ui" font-size="40" fill="#00E87A" filter="url(#smGlow)">★★★★★</text>
+
+  <!-- After sub -->
+  <text x="622" y="378" font-family="system-ui" font-size="15" font-weight="600" fill="rgba(240,240,245,0.5)">Google Rating · Spice Garden, Hyderabad</text>
+
+  <!-- ── STAT PILLS row ── -->
+  <rect x="60" y="440" width="198" height="52" rx="14" fill="#0F0F1A" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <text x="159" y="462" font-family="system-ui" font-size="10" fill="rgba(240,240,245,0.35)" text-anchor="middle" letter-spacing="0.08em">NEW REVIEWS</text>
+  <text x="159" y="484" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="22" font-weight="800" fill="#00E87A" text-anchor="middle">+47 / month</text>
+
+  <rect x="276" y="440" width="198" height="52" rx="14" fill="#0F0F1A" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <text x="375" y="462" font-family="system-ui" font-size="10" fill="rgba(240,240,245,0.35)" text-anchor="middle" letter-spacing="0.08em">BAD REVIEWS CAUGHT</text>
+  <text x="375" y="484" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="22" font-weight="800" fill="#00E87A" text-anchor="middle">6 privately</text>
+
+  <rect x="492" y="440" width="198" height="52" rx="14" fill="#0F0F1A" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <text x="591" y="462" font-family="system-ui" font-size="10" fill="rgba(240,240,245,0.35)" text-anchor="middle" letter-spacing="0.08em">SETUP TIME</text>
+  <text x="591" y="484" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="22" font-weight="800" fill="#F0F0F5" text-anchor="middle">2 minutes</text>
+
+  <!-- ── HEADLINE at bottom ── -->
+  <text x="60" y="570" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="46" font-weight="800" fill="#F0F0F5" letter-spacing="-1">How I grew my Google rating in</text>
+  <text x="60" y="626" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="58" font-weight="800" fill="#00E87A" letter-spacing="-1.5" filter="url(#smGlow)">30 days — automatically.</text>
+
+  <!-- Ratinova logo top right -->
+  <g transform="translate(1168, 28)">
+    <rect width="38" height="38" rx="9" fill="rgba(0,232,122,0.12)"/>
+    <rect x="6" y="26" width="5" height="8"  rx="1.5" fill="#00E87A" opacity="0.3"/>
+    <rect x="14" y="20" width="5" height="14" rx="1.5" fill="#00E87A" opacity="0.6"/>
+    <rect x="22" y="13" width="5" height="21" rx="1.5" fill="#00E87A" opacity="0.9"/>
+    <path d="M32 5 L33.1 8.2 L36.5 8.2 L33.8 10.3 L34.9 13.5 L32 11.5 L29.1 13.5 L30.2 10.3 L27.5 8.2 L30.9 8.2 Z" fill="#00E87A"/>
+  </g>
+  <text x="1215" y="44" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="16" font-weight="800" fill="#F0F0F5" text-anchor="middle">Ratinova</text>
+
+  <!-- Top & bottom edges -->
+  <rect x="0" y="0"   width="1280" height="3" fill="url(#greenGrad3)" opacity="0.5"/>
+  <rect x="0" y="717" width="1280" height="3" fill="url(#greenGrad3)" opacity="0.3"/>
+
+  <!-- Glow dot at peak of chart -->
+  <circle cx="1260" cy="142" r="8"  fill="#00E87A" opacity="0.15"/>
+  <circle cx="1260" cy="142" r="4"  fill="#00E87A" opacity="0.5"/>
+
+  </g>
+</svg>

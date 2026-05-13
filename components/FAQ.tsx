@@ -5,7 +5,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Is it ready to use right now?",
-    a: "We are in the final stage of building the platform and onboarding founding restaurant partners in Hyderabad. Founding partners get first access when we go live, a locked-in price forever, and their feedback directly shapes the product.",
+    a: "We are in the final stage of building the platform and onboarding founding restaurant partners across India. Founding partners get first access when we go live, a locked-in price forever, and their feedback directly shapes the product.",
   },
   {
     q: "How does setup work?",

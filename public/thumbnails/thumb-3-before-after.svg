@@ -1,0 +1,101 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg3" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#08080F"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <radialGradient id="glowL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF4444" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FF4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00E87A" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gb3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E87A"/>
+      <stop offset="100%" stop-color="#00C068"/>
+    </linearGradient>
+    <clipPath id="c3"><rect width="1280" height="720"/></clipPath>
+  </defs>
+  <g clip-path="url(#c3)">
+
+  <rect width="1280" height="720" fill="url(#bg3)"/>
+  <ellipse cx="320"  cy="360" rx="400" ry="350" fill="url(#glowL)"/>
+  <ellipse cx="960"  cy="360" rx="400" ry="350" fill="url(#glowR)"/>
+
+  <!-- Grid -->
+  <g opacity="0.035" stroke="white" stroke-width="1">
+    <line x1="0" y1="144" x2="1280" y2="144"/><line x1="0" y1="288" x2="1280" y2="288"/>
+    <line x1="0" y1="432" x2="1280" y2="432"/><line x1="0" y1="576" x2="1280" y2="576"/>
+    <line x1="160" y1="0" x2="160" y2="720"/><line x1="320" y1="0" x2="320" y2="720"/>
+    <line x1="480" y1="0" x2="480" y2="720"/><line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="800" y1="0" x2="800" y2="720"/><line x1="960" y1="0" x2="960" y2="720"/>
+    <line x1="1120" y1="0" x2="1120" y2="720"/>
+  </g>
+
+  <!-- Top label -->
+  <rect x="440" y="30" width="400" height="44" rx="22" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <text x="640" y="58" font-family="-apple-system,system-ui,sans-serif" font-size="16" font-weight="700" fill="rgba(240,240,245,0.6)" text-anchor="middle" letter-spacing="2">30 DAYS WITH RATINOVA</text>
+
+  <!-- ── LEFT: BEFORE ── -->
+  <!-- BEFORE label -->
+  <rect x="60" y="100" width="160" height="40" rx="8" fill="rgba(255,68,68,0.15)" stroke="rgba(255,68,68,0.25)" stroke-width="1.5"/>
+  <text x="140" y="125" font-family="-apple-system,system-ui,sans-serif" font-size="18" font-weight="800" fill="#FF6666" text-anchor="middle" letter-spacing="2">BEFORE</text>
+
+  <!-- Big rating number -->
+  <text x="60" y="310" font-family="-apple-system,system-ui,sans-serif" font-size="200" font-weight="800" fill="#FF4444" letter-spacing="-8" opacity="0.9">4.1</text>
+
+  <!-- Stars muted -->
+  <text x="70" y="380" font-family="-apple-system,system-ui,sans-serif" font-size="44" fill="rgba(255,100,100,0.5)">★★★★</text>
+  <text x="250" y="380" font-family="-apple-system,system-ui,sans-serif" font-size="44" fill="rgba(255,100,100,0.2)">★</text>
+
+  <!-- Google label -->
+  <text x="70" y="430" font-family="-apple-system,system-ui,sans-serif" font-size="22" fill="rgba(240,240,245,0.35)">Google Rating</text>
+
+  <!-- Sad stat -->
+  <rect x="60" y="460" width="280" height="56" rx="12" fill="rgba(255,68,68,0.08)" stroke="rgba(255,68,68,0.15)" stroke-width="1"/>
+  <text x="200" y="487" font-family="-apple-system,system-ui,sans-serif" font-size="16" fill="rgba(240,240,245,0.45)" text-anchor="middle">91% of diners skip</text>
+  <text x="200" y="506" font-family="-apple-system,system-ui,sans-serif" font-size="16" fill="#FF6666" text-anchor="middle" font-weight="700">restaurants below 4 stars</text>
+
+  <!-- ── CENTER ARROW ── -->
+  <g transform="translate(560, 280)">
+    <rect width="160" height="160" rx="80" fill="rgba(0,232,122,0.08)" stroke="rgba(0,232,122,0.2)" stroke-width="2"/>
+    <!-- Arrow right -->
+    <path d="M46 80 H114 M90 56 L114 80 L90 104" stroke="#00E87A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="80" y="174" font-family="-apple-system,system-ui,sans-serif" font-size="16" font-weight="700" fill="rgba(240,240,245,0.4)" text-anchor="middle">30 DAYS</text>
+  </g>
+
+  <!-- ── RIGHT: AFTER ── -->
+  <!-- AFTER label -->
+  <rect x="1060" y="100" width="160" height="40" rx="8" fill="rgba(0,232,122,0.12)" stroke="rgba(0,232,122,0.25)" stroke-width="1.5"/>
+  <text x="1140" y="125" font-family="-apple-system,system-ui,sans-serif" font-size="18" font-weight="800" fill="#00E87A" text-anchor="middle" letter-spacing="2">AFTER</text>
+
+  <!-- Big rating number -->
+  <text x="760" y="310" font-family="-apple-system,system-ui,sans-serif" font-size="200" font-weight="800" fill="#00E87A" letter-spacing="-8">4.8</text>
+
+  <!-- Stars full -->
+  <text x="780" y="380" font-family="-apple-system,system-ui,sans-serif" font-size="44" fill="#00E87A">★★★★★</text>
+
+  <!-- Google label -->
+  <text x="780" y="430" font-family="-apple-system,system-ui,sans-serif" font-size="22" fill="rgba(240,240,245,0.35)">Google Rating</text>
+
+  <!-- Happy stat -->
+  <rect x="760" y="460" width="460" height="56" rx="12" fill="rgba(0,232,122,0.08)" stroke="rgba(0,232,122,0.15)" stroke-width="1"/>
+  <text x="990" y="487" font-family="-apple-system,system-ui,sans-serif" font-size="16" fill="rgba(240,240,245,0.45)" text-anchor="middle">+106 new reviews ·</text>
+  <text x="990" y="506" font-family="-apple-system,system-ui,sans-serif" font-size="16" fill="#00E87A" text-anchor="middle" font-weight="700">Revenue up 9% — same restaurant</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="600" width="1280" height="120" fill="rgba(0,232,122,0.05)" stroke-top="rgba(0,232,122,0.1)"/>
+  <rect x="0" y="600" width="1280" height="2" fill="rgba(0,232,122,0.15)"/>
+  <text x="640" y="648" font-family="-apple-system,system-ui,sans-serif" font-size="28" font-weight="800" fill="#F0F0F5" text-anchor="middle">One QR code on every table.</text>
+  <text x="640" y="686" font-family="-apple-system,system-ui,sans-serif" font-size="22" fill="rgba(240,240,245,0.4)" text-anchor="middle">No effort from the owner. Zero extra work.</text>
+
+  <!-- Left accent -->
+  <rect x="0" y="0" width="8" height="720" fill="#FF4444" opacity="0.5"/>
+  <!-- Right accent -->
+  <rect x="1272" y="0" width="8" height="720" fill="url(#gb3)" opacity="0.6"/>
+  <!-- Bottom accent -->
+  <rect x="0" y="717" width="1280" height="3" fill="url(#gb3)" opacity="0.5"/>
+  </g>
+</svg>

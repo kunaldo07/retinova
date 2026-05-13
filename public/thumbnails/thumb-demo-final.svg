@@ -1,0 +1,279 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <!-- Deep dark background with subtle green-left, red-right -->
+    <radialGradient id="bgMain" cx="50%" cy="50%" r="80%">
+      <stop offset="0%"   stop-color="#07100A"/>
+      <stop offset="55%"  stop-color="#060808"/>
+      <stop offset="100%" stop-color="#040406"/>
+    </radialGradient>
+
+    <!-- Phone screen glow -->
+    <radialGradient id="phoneAura" cx="50%" cy="40%" r="55%">
+      <stop offset="0%"   stop-color="#00E87A" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Red glow top-left -->
+    <radialGradient id="redAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#EF4444" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Green text gradient -->
+    <linearGradient id="greenTxt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#00C068"/>
+      <stop offset="100%" stop-color="#00E87A"/>
+    </linearGradient>
+
+    <!-- Green bar -->
+    <linearGradient id="greenBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#00C068"/>
+      <stop offset="100%" stop-color="#00E87A"/>
+    </linearGradient>
+
+    <!-- Phone fade right edge -->
+    <linearGradient id="phoneFadeR" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="50%"  stop-color="#040406" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#040406" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Screen gradient -->
+    <linearGradient id="screenBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0A0A18"/>
+      <stop offset="100%" stop-color="#060610"/>
+    </linearGradient>
+
+    <!-- Notification glow filter -->
+    <filter id="notifGlow">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Big text glow -->
+    <filter id="bigTextGlow">
+      <feGaussianBlur stdDeviation="16" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Medium glow -->
+    <filter id="medGlow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Drop shadow -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+
+    <clipPath id="phoneClip">
+      <rect x="52" y="52" width="296" height="580" rx="36"/>
+    </clipPath>
+
+    <clipPath id="mainClip">
+      <rect width="1280" height="720"/>
+    </clipPath>
+
+  </defs>
+
+  <g clip-path="url(#mainClip)">
+
+  <!-- ═══ BACKGROUND ═══ -->
+  <rect width="1280" height="720" fill="url(#bgMain)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.025">
+    <line x1="0"    y1="120" x2="1280" y2="120" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="240" x2="1280" y2="240" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="360" x2="1280" y2="360" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="480" x2="1280" y2="480" stroke="white" stroke-width="1"/>
+    <line x1="0"    y1="600" x2="1280" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="160"  y1="0"   x2="160"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="320"  y1="0"   x2="320"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="480"  y1="0"   x2="480"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="640"  y1="0"   x2="640"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="800"  y1="0"   x2="800"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="960"  y1="0"   x2="960"  y2="720" stroke="white" stroke-width="1"/>
+    <line x1="1120" y1="0"   x2="1120" y2="720" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- Ambient glows -->
+  <ellipse cx="200" cy="280" rx="320" ry="280" fill="url(#redAura)"/>
+  <ellipse cx="300" cy="400" rx="340" ry="300" fill="url(#phoneAura)"/>
+
+  <!-- ═══ PHONE MOCKUP ═══ -->
+
+  <!-- Phone shadow -->
+  <rect x="52" y="52" width="296" height="580" rx="36" fill="#000" opacity="0.5" transform="translate(8,12)"/>
+
+  <!-- Phone body -->
+  <rect x="52" y="52" width="296" height="580" rx="36" fill="#0C0C1A" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <!-- Screen -->
+  <rect x="62" y="72" width="276" height="540" rx="28" fill="url(#screenBg)"/>
+
+  <!-- Notch -->
+  <rect x="148" y="52" width="104" height="28" rx="0 0 18 18" fill="#080810"/>
+  <rect x="148" y="64" width="104" height="16" fill="#080810"/>
+
+  <!-- Status bar -->
+  <text x="76"  y="98" font-family="system-ui" font-size="11" fill="rgba(255,255,255,0.3)">9:41 PM</text>
+  <text x="320" y="98" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.3)" text-anchor="end">Sat ●●●</text>
+
+  <!-- ── NOTIFICATION 1: Bad review (red) ── -->
+  <rect x="72" y="112" width="256" height="78" rx="14" fill="#1A0808" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+  <!-- Google G -->
+  <circle cx="96" cy="140" r="12" fill="#1E1020"/>
+  <text x="96" y="144" font-family="system-ui" font-size="10" font-weight="700" fill="#4285F4" text-anchor="middle">G</text>
+  <!-- Text -->
+  <text x="116" y="134" font-family="system-ui" font-size="10" font-weight="700" fill="rgba(240,240,245,0.7)">Google Reviews</text>
+  <text x="116" y="149" font-family="system-ui" font-size="11" fill="#EF4444">★★☆☆☆  New 2-star review</text>
+  <text x="116" y="163" font-family="system-ui" font-size="9"  fill="rgba(240,240,245,0.35)" font-style="italic">"Food was cold, very slow service"</text>
+  <text x="318" y="120" font-family="system-ui" font-size="9"  fill="rgba(255,255,255,0.18)" text-anchor="end">9:12 PM</text>
+  <!-- Unread dot -->
+  <circle cx="78" cy="140" r="4" fill="#EF4444" filter="url(#notifGlow)"/>
+
+  <!-- ── NOTIFICATION 2: Ratinova alert (green) ── -->
+  <rect x="72" y="202" width="256" height="88" rx="14" fill="#081408" stroke="rgba(0,232,122,0.35)" stroke-width="1.5" filter="url(#shadow)"/>
+  <!-- Ratinova icon -->
+  <rect x="84" y="214" width="28" height="28" rx="7" fill="rgba(0,232,122,0.15)"/>
+  <rect x="89"  y="232" width="4" height="6"  rx="1" fill="#00E87A" opacity="0.4"/>
+  <rect x="95"  y="228" width="4" height="10" rx="1" fill="#00E87A" opacity="0.7"/>
+  <rect x="101" y="223" width="4" height="15" rx="1" fill="#00E87A"/>
+  <path d="M107 216 L108 219 L111 219 L108.5 221 L109.5 224 L107 222.5 L104.5 224 L105.5 221 L103 219 L106 219 Z" fill="#00E87A"/>
+  <!-- Alert text -->
+  <text x="120" y="227" font-family="system-ui" font-size="10" font-weight="700" fill="#00E87A">⚡ Ratinova Alert</text>
+  <text x="120" y="241" font-family="system-ui" font-size="10" fill="rgba(240,240,245,0.8)">2★ review caught — privately</text>
+  <text x="120" y="255" font-family="system-ui" font-size="9"  fill="rgba(240,240,245,0.4)">Did NOT reach Google ✓</text>
+  <!-- Reply button -->
+  <rect x="120" y="263" width="80" height="20" rx="6" fill="rgba(0,232,122,0.15)"/>
+  <text x="160" y="276" font-family="system-ui" font-size="9" font-weight="600" fill="#00E87A" text-anchor="middle">Reply now →</text>
+  <text x="318" y="210" font-family="system-ui" font-size="9" fill="rgba(255,255,255,0.18)" text-anchor="end">9:12 PM</text>
+  <!-- Unread dot -->
+  <circle cx="78" cy="230" r="4" fill="#00E87A" filter="url(#notifGlow)"/>
+
+  <!-- ── WA message below ── -->
+  <rect x="72" y="303" width="256" height="66" rx="14" fill="#0A1A0A" stroke="rgba(37,211,102,0.2)" stroke-width="1"/>
+  <circle cx="94" cy="324" r="10" fill="#25D366"/>
+  <text x="94" y="328" font-family="system-ui" font-size="9" font-weight="700" fill="white" text-anchor="middle">R</text>
+  <text x="112" y="320" font-family="system-ui" font-size="10" font-weight="600" fill="#F0F0F5">Ratinova</text>
+  <text x="112" y="334" font-family="system-ui" font-size="9" fill="rgba(240,240,245,0.45)">Tap to see review &amp; reply with AI</text>
+  <text x="112" y="348" font-family="system-ui" font-size="9" fill="rgba(0,232,122,0.6)">⚡ Delivered in 3 seconds</text>
+
+  <!-- ── Rating going up ── -->
+  <rect x="72" y="382" width="120" height="56" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="132" y="402" font-family="system-ui" font-size="9" fill="rgba(240,240,245,0.3)" text-anchor="middle">GOOGLE RATING</text>
+  <text x="132" y="428" font-family="system-ui" font-size="26" font-weight="800" fill="#00E87A" text-anchor="middle">4.8 ★</text>
+
+  <rect x="204" y="382" width="124" height="56" rx="10" fill="#0F0F1A" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="266" y="402" font-family="system-ui" font-size="9" fill="rgba(240,240,245,0.3)" text-anchor="middle">NEW REVIEWS</text>
+  <text x="266" y="428" font-family="system-ui" font-size="26" font-weight="800" fill="#F0F0F5" text-anchor="middle">+47</text>
+
+  <!-- Mini chart at bottom of phone -->
+  <path d="M72 500 C100 496 128 488 156 472 C184 456 212 440 240 424 C268 408 296 400 320 392 L328 390 L328 460 L72 460 Z" fill="rgba(0,232,122,0.12)"/>
+  <path d="M72 500 C100 496 128 488 156 472 C184 456 212 440 240 424 C268 408 296 400 320 392" stroke="#00E87A" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- Phone bottom home bar -->
+  <rect x="148" y="594" width="104" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Fade phone right edge into bg -->
+  <rect x="52" y="52" width="296" height="580" rx="36" fill="url(#phoneFadeR)"/>
+
+  <!-- ═══ RIGHT SIDE — MAIN TEXT ═══ -->
+
+  <!-- "DEMO VIDEO" label -->
+  <rect x="490" y="82" width="156" height="30" rx="15" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <circle cx="510" cy="97" r="4" fill="#00E87A"/>
+  <text x="560" y="102" font-family="system-ui" font-size="11" font-weight="700" fill="rgba(240,240,245,0.4)" text-anchor="middle" letter-spacing="2">DEMO VIDEO</text>
+
+  <!-- LINE 1 — small, faded -->
+  <text
+    x="490" y="182"
+    font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+    font-size="52" font-weight="700"
+    fill="rgba(240,240,245,0.35)"
+    letter-spacing="-1"
+  >Most owners</text>
+
+  <!-- LINE 2 — faded -->
+  <text
+    x="490" y="248"
+    font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+    font-size="52" font-weight="700"
+    fill="rgba(240,240,245,0.35)"
+    letter-spacing="-1"
+  >find out</text>
+
+  <!-- LINE 3 — BIG RED "MONDAY." -->
+  <text
+    x="486" y="356"
+    font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+    font-size="116" font-weight="800"
+    fill="#EF4444"
+    letter-spacing="-3"
+    opacity="0.7"
+  >Monday.</text>
+
+  <!-- Strikethrough -->
+  <rect x="486" y="308" width="620" height="8" rx="4" fill="#EF4444" opacity="0.5" transform="rotate(-2, 796, 312)"/>
+
+  <!-- Divider line -->
+  <rect x="490" y="378" width="540" height="3" rx="1.5" fill="url(#greenBar)" opacity="0.5"/>
+
+  <!-- LINE 4 — small, white -->
+  <text
+    x="490" y="444"
+    font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+    font-size="52" font-weight="700"
+    fill="rgba(240,240,245,0.6)"
+    letter-spacing="-1"
+  >You find out in</text>
+
+  <!-- LINE 5 — BIG GREEN HERO TEXT -->
+  <text
+    x="484" y="566"
+    font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+    font-size="136" font-weight="800"
+    fill="#00E87A"
+    letter-spacing="-4"
+    filter="url(#bigTextGlow)"
+  >60 seconds.</text>
+
+  <!-- ═══ BOTTOM BAR ═══ -->
+  <rect x="0" y="628" width="1280" height="92" fill="#040406" opacity="0.96"/>
+  <rect x="0" y="626" width="1280" height="2.5" fill="url(#greenBar)" opacity="0.4"/>
+
+  <!-- Logo -->
+  <g transform="translate(44, 648)">
+    <rect width="36" height="36" rx="9" fill="rgba(0,232,122,0.12)"/>
+    <rect x="6"  y="24" width="4.5" height="8"  rx="1.5" fill="#00E87A" opacity="0.3"/>
+    <rect x="13" y="18" width="4.5" height="14" rx="1.5" fill="#00E87A" opacity="0.6"/>
+    <rect x="20" y="12" width="4.5" height="20" rx="1.5" fill="#00E87A" opacity="0.9"/>
+    <path d="M30 4 L31 7.2 L34.4 7.2 L31.8 9.2 L32.8 12.4 L30 10.5 L27.2 12.4 L28.2 9.2 L25.6 7.2 L29 7.2 Z" fill="#00E87A"/>
+  </g>
+  <text x="92" y="662" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="18" font-weight="800" fill="#F0F0F5">Ratinova</text>
+  <text x="92" y="679" font-family="system-ui" font-size="11" fill="rgba(240,240,245,0.28)">Review management for restaurants</text>
+
+  <!-- Divider -->
+  <rect x="256" y="638" width="1" height="64" fill="rgba(255,255,255,0.07)"/>
+
+  <!-- Pills -->
+  <rect x="280" y="648" width="148" height="30" rx="15" fill="rgba(0,232,122,0.07)" stroke="rgba(0,232,122,0.15)" stroke-width="1"/>
+  <text x="354" y="667" font-family="system-ui" font-size="11" font-weight="600" fill="rgba(0,232,122,0.8)" text-anchor="middle">14-Day Free Trial</text>
+
+  <rect x="440" y="648" width="148" height="30" rx="15" fill="rgba(0,232,122,0.07)" stroke="rgba(0,232,122,0.15)" stroke-width="1"/>
+  <text x="514" y="667" font-family="system-ui" font-size="11" font-weight="600" fill="rgba(0,232,122,0.8)" text-anchor="middle">No Card Needed</text>
+
+  <rect x="600" y="648" width="148" height="30" rx="15" fill="rgba(0,232,122,0.07)" stroke="rgba(0,232,122,0.15)" stroke-width="1"/>
+  <text x="674" y="667" font-family="system-ui" font-size="11" font-weight="600" fill="rgba(0,232,122,0.8)" text-anchor="middle">2-Min Setup</text>
+
+  <!-- CTA button -->
+  <rect x="992" y="640" width="244" height="50" rx="12" fill="#00E87A"/>
+  <text x="1114" y="671" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="16" font-weight="700" fill="#000" text-anchor="middle">Watch Full Demo →</text>
+
+  <!-- Top edge -->
+  <rect x="0" y="0" width="1280" height="3" fill="url(#greenBar)" opacity="0.45"/>
+
+  </g>
+</svg>

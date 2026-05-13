@@ -1,4 +1,5 @@
 import LeadForm from "@/components/LeadForm";
+import VideoEmbed from "@/components/VideoEmbed";
 import FAQ from "@/components/FAQ";
 import ScrollReveal from "@/components/ScrollReveal";
 import NavScrollEffect from "@/components/NavScrollEffect";
@@ -44,8 +45,16 @@ export default function Home() {
           Ratinova
         </a>
         <div className="nav-right">
+          <a href="#how" className="nav-link">How it Works</a>
           <a href="#features" className="nav-link">Features</a>
           <a href="#pricing" className="nav-link">Pricing</a>
+          <a href="#faq" className="nav-link">FAQ</a>
+          <a href="#demo" className="nav-link nav-link-demo">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
+              <path d="M8 5.14v13.72a1 1 0 0 0 1.5.87l11-6.86a1 1 0 0 0 0-1.74l-11-6.86A1 1 0 0 0 8 5.14z"/>
+            </svg>
+            Watch Demo
+          </a>
           <NavCTA />
         </div>
       </nav>
@@ -57,7 +66,7 @@ export default function Home() {
 
         <div className="hero-tag">
           <div className="logo-dot" />
-          Now onboarding founding restaurants in Hyderabad
+          Now onboarding founding restaurants across India
         </div>
 
         {/* Urgency bar */}
@@ -241,6 +250,29 @@ export default function Home() {
             <div className="dash-pill"><span className="dash-pill-dot" />QR code manager</div>
             <div className="dash-pill"><span className="dash-pill-dot" />Weekly performance summary</div>
           </div>
+        </div>
+      </section>
+
+      {/* ── VIDEO / DEMO ────────────────────────────── */}
+      <section className="section video-section" id="demo">
+        <div className="wrap">
+          <div className="reveal" style={{ textAlign: "center" }}>
+            <div className="s-tag">See it in action</div>
+            <h2 className="s-title">
+              A 2-star review posted at 9pm.
+              <br />
+              300 people saw it before you did.
+            </h2>
+            <p className="s-sub">
+              Watch how Ratinova makes sure that never happens to you again.
+            </p>
+          </div>
+
+          <VideoEmbed />
+
+          <p className="video-caption reveal">
+            <strong>2-minute setup</strong> · No tech skills needed · Works on any phone
+          </p>
         </div>
       </section>
 
@@ -479,7 +511,7 @@ export default function Home() {
                 color: "#7C3AED",
                 text: "Within 3 weeks, we went from 3.9 to 4.4 stars on Google. The QR code system alone has brought us <strong>double the reviews</strong> we used to get in a month. The WhatsApp alerts are a game changer — I replied to a bad review within 15 minutes.",
                 name: "Arjun Reddy",
-                role: "Owner, Spice Garden — Hyderabad",
+                role: "Owner, Spice Garden",
               },
               {
                 initials: "PS",
@@ -713,7 +745,7 @@ export default function Home() {
               color: "var(--dim)",
             }}
           >
-            ⚠ Only {TOTAL_SPOTS} founding restaurant spots in Hyderabad.
+            ⚠ Only {TOTAL_SPOTS} founding restaurant spots across India.
             Founding price is locked for life.
           </div>
         </div>
@@ -725,9 +757,9 @@ export default function Home() {
           <div className="founder-box reveal">
             <div className="founder-avatar">👨‍💻</div>
             <div className="founder-text">
-              <h3>Built by <span>Kunal</span>, Hyderabad — and I set it up personally for every restaurant.</h3>
+              <h3>Built by <span>Kunal</span> — and I set it up personally for every restaurant.</h3>
               <p>
-                I&apos;m not a big company. I&apos;m a founder who watched restaurant owners in Hyderabad
+                I&apos;m not a big company. I&apos;m a founder who watched restaurant owners
                 lose customers to reviews they never even saw. So I built Ratinova to fix exactly that.
                 When you sign up, I personally connect your Google profile, print your QR code design,
                 and make sure everything works — I won&apos;t hand you off to a support ticket system.
@@ -800,7 +832,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ─────────────────────────────────────── */}
-      <FAQ />
+      <div id="faq"><FAQ /></div>
 
       {/* ── FOOTER ──────────────────────────────────── */}
       <footer>
@@ -821,7 +853,7 @@ export default function Home() {
           </a>
         </div>
         <div className="footer-right">
-          © 2025 Ratinova. Built for Indian restaurants. Hyderabad, India.
+          © 2025 Ratinova. Built for Indian restaurants.
         </div>
       </footer>
 

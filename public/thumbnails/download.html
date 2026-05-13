@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Download Thumbnails — Ratinova</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #050508; font-family: system-ui, sans-serif; color: #fff; display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 48px 24px; }
+  h1 { font-size: 22px; font-weight: 700; }
+  .thumb-card { width: 100%; max-width: 860px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .thumb-card h2 { font-size: 14px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1px; }
+  .thumb-card img { width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); }
+  .btn { background: #00E87A; color: #000; font-size: 15px; font-weight: 700; padding: 13px 32px; border: none; border-radius: 10px; cursor: pointer; align-self: flex-start; }
+  .btn:hover { background: #00C068; }
+  .hint { font-size: 12px; color: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+
+<h1>Ratinova — YouTube Thumbnails</h1>
+
+<div class="thumb-card">
+  <h2>Demo Thumbnail (Final) — "You find out in 60 seconds"</h2>
+  <img src="thumb-demo-final.svg" alt="Demo Thumbnail Final"/>
+  <button class="btn" onclick="downloadPNG('thumb-demo-final.svg', 'ratinova-thumb-demo-final.png')">⬇ Download PNG (1280×720)</button>
+  <p class="hint">1280 × 720 px · YouTube recommended</p>
+</div>
+
+<div class="thumb-card">
+  <h2>Thumbnail 1 — "300 people saw your 2★ review"</h2>
+  <img src="thumb-1-pain.svg" alt="Thumbnail 1"/>
+  <button class="btn" onclick="downloadPNG('thumb-1-pain.svg', 'ratinova-thumb-1-pain.png')">⬇ Download PNG (1280×720)</button>
+  <p class="hint">1280 × 720 px · YouTube recommended</p>
+</div>
+
+<div class="thumb-card">
+  <h2>Thumbnail 2 — "Bad reviews never reach Google"</h2>
+  <img src="thumb-2-routing.svg" alt="Thumbnail 2"/>
+  <button class="btn" onclick="downloadPNG('thumb-2-routing.svg', 'ratinova-thumb-2-routing.png')">⬇ Download PNG (1280×720)</button>
+  <p class="hint">1280 × 720 px · YouTube recommended</p>
+</div>
+
+<div class="thumb-card">
+  <h2>Thumbnail 3 — "4.1★ → 4.8★ in 30 days"</h2>
+  <img src="thumb-3-results.svg" alt="Thumbnail 3"/>
+  <button class="btn" onclick="downloadPNG('thumb-3-results.svg', 'ratinova-thumb-3-results.png')">⬇ Download PNG (1280×720)</button>
+  <p class="hint">1280 × 720 px · YouTube recommended</p>
+</div>
+
+<canvas id="canvas" width="1280" height="720" style="display:none"></canvas>
+
+<script>
+function downloadPNG(svgFile, pngName) {
+  const btns = document.querySelectorAll('.btn');
+  btns.forEach(b => { if (b.onclick.toString().includes(svgFile)) b.textContent = 'Generating…'; });
+
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const img = new Image();
+  img.onload = function() {
+    ctx.clearRect(0, 0, 1280, 720);
+    ctx.drawImage(img, 0, 0, 1280, 720);
+    const link = document.createElement('a');
+    link.download = pngName;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    btns.forEach(b => { if (b.textContent === 'Generating…') b.textContent = '⬇ Download PNG (1280×720)'; });
+  };
+  fetch(svgFile)
+    .then(r => r.text())
+    .then(svg => {
+      const blob = new Blob([svg], {type: 'image/svg+xml'});
+      img.src = URL.createObjectURL(blob);
+    });
+}
+</script>
+</body>
+</html>

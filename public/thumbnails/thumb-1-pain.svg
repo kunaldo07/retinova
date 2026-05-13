@@ -1,0 +1,141 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg1" cx="30%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1A0808"/>
+      <stop offset="60%" stop-color="#080508"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <radialGradient id="redGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00E87A" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00E87A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="phoneFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="60%" stop-color="#050508" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#050508" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="redBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+    <filter id="tglow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="rglow">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="c1"><rect width="1280" height="720"/></clipPath>
+  </defs>
+  <g clip-path="url(#c1)">
+
+  <!-- BG -->
+  <rect width="1280" height="720" fill="url(#bg1)"/>
+  <!-- Grid -->
+  <g opacity="0.03">
+    <line x1="0" y1="144" x2="1280" y2="144" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="288" x2="1280" y2="288" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="432" x2="1280" y2="432" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="576" x2="1280" y2="576" stroke="white" stroke-width="1"/>
+    <line x1="160" y1="0" x2="160" y2="720" stroke="white" stroke-width="1"/>
+    <line x1="320" y1="0" x2="320" y2="720" stroke="white" stroke-width="1"/>
+    <line x1="480" y1="0" x2="480" y2="720" stroke="white" stroke-width="1"/>
+    <line x1="640" y1="0" x2="640" y2="720" stroke="white" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="720" stroke="white" stroke-width="1"/>
+    <line x1="960" y1="0" x2="960" y2="720" stroke="white" stroke-width="1"/>
+    <line x1="1120" y1="0" x2="1120" y2="720" stroke="white" stroke-width="1"/>
+  </g>
+  <!-- Glows -->
+  <ellipse cx="200" cy="360" rx="400" ry="320" fill="url(#redGlow)"/>
+  <ellipse cx="1100" cy="360" rx="300" ry="280" fill="url(#greenGlow1)"/>
+
+  <!-- ── PHONE mockup ── -->
+  <rect x="60" y="80" width="230" height="470" rx="30" fill="#0C0C18" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <rect x="120" y="80" width="110" height="24" rx="0 0 14 14" fill="#080810"/>
+  <rect x="120" y="92" width="110" height="12" fill="#080810"/>
+  <!-- Night status bar -->
+  <text x="78" y="116" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.25)">9:41 PM</text>
+  <!-- Dark notification banner at top -->
+  <rect x="70" y="122" width="210" height="70" rx="12" fill="#1A0A0A" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+  <rect x="70" y="122" width="210" height="70" rx="12" fill="rgba(239,68,68,0.05)"/>
+  <!-- Google icon circle -->
+  <circle cx="92" cy="148" r="10" fill="#1F1F2E"/>
+  <text x="92" y="152" font-family="system-ui" font-size="9" font-weight="700" fill="#4285F4" text-anchor="middle">G</text>
+  <text x="108" y="144" font-family="system-ui" font-size="9" font-weight="700" fill="rgba(240,240,245,0.7)">Google Reviews</text>
+  <text x="108" y="157" font-family="system-ui" font-size="10" fill="#EF4444">★★☆☆☆  2 stars</text>
+  <text x="108" y="170" font-family="system-ui" font-size="9" fill="rgba(240,240,245,0.4)" font-style="italic">"Food was cold and slow..."</text>
+  <text x="270" y="130" font-family="system-ui" font-size="9" fill="rgba(255,255,255,0.2)" text-anchor="end">Sat 9:12 PM</text>
+
+  <!-- More notification banners stacked (blurred / dimmer) -->
+  <rect x="70" y="204" width="210" height="56" rx="12" fill="#111118" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <text x="86" y="224" font-family="system-ui" font-size="9" fill="rgba(240,240,245,0.25)">Zomato · ★★★★☆ review</text>
+  <text x="86" y="240" font-family="system-ui" font-size="8" fill="rgba(240,240,245,0.15)">"Decent biryani, will revisit"</text>
+  <text x="270" y="212" font-family="system-ui" font-size="8" fill="rgba(255,255,255,0.12)" text-anchor="end">Sat 10:45 PM</text>
+
+  <rect x="70" y="270" width="210" height="56" rx="12" fill="#111118" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <text x="86" y="290" font-family="system-ui" font-size="9" fill="rgba(240,240,245,0.18)">Google · ★★★★★ review</text>
+  <text x="86" y="306" font-family="system-ui" font-size="8" fill="rgba(240,240,245,0.1)">"Amazing experience!"</text>
+
+  <!-- Monday label -->
+  <rect x="100" y="342" width="148" height="26" rx="6" fill="rgba(255,255,255,0.04)"/>
+  <text x="174" y="359" font-family="system-ui" font-size="10" fill="rgba(240,240,245,0.2)" text-anchor="middle">Monday 9:00 AM</text>
+
+  <!-- "You check your phone" moment -->
+  <rect x="70" y="378" width="210" height="56" rx="12" fill="#0F1A0F" stroke="rgba(0,232,122,0.15)" stroke-width="1"/>
+  <text x="86" y="398" font-family="system-ui" font-size="9" font-weight="600" fill="rgba(0,232,122,0.7)">You see it. 38 hours later.</text>
+  <text x="86" y="414" font-family="system-ui" font-size="8" fill="rgba(240,240,245,0.3)">300 people already read it.</text>
+
+  <!-- Phone bottom bar -->
+  <rect x="145" y="516" width="60" height="5" rx="2.5" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Fade phone into right -->
+  <rect x="60" y="80" width="230" height="470" rx="30" fill="url(#phoneFade)"/>
+
+  <!-- ── MAIN TEXT ── right side ── -->
+
+  <!-- Eyebrow -->
+  <rect x="520" y="104" width="240" height="34" rx="17" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.25)" stroke-width="1.5"/>
+  <circle cx="542" cy="121" r="5" fill="#EF4444"/>
+  <text x="640" y="126" font-family="system-ui" font-size="13" font-weight="700" fill="#EF4444" text-anchor="middle" letter-spacing="1">SATURDAY NIGHT</text>
+
+  <!-- Big line 1 -->
+  <text x="520" y="222" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="80" font-weight="800" fill="#F0F0F5" filter="url(#tglow)" letter-spacing="-2">300 people</text>
+
+  <!-- Line 2 -->
+  <text x="520" y="308" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="64" font-weight="800" fill="#EF4444" filter="url(#rglow)" letter-spacing="-1.5">saw your 2★ review.</text>
+
+  <!-- Divider -->
+  <rect x="520" y="334" width="120" height="3" rx="1.5" fill="url(#redBar)" opacity="0.6"/>
+
+  <!-- Line 3 -->
+  <text x="520" y="408" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="62" font-weight="800" fill="rgba(240,240,245,0.55)" letter-spacing="-1">You found out</text>
+  <text x="520" y="482" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="76" font-weight="800" fill="#F0F0F5" letter-spacing="-2">Monday.</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="622" width="1280" height="98" fill="#050508" opacity="0.95"/>
+  <rect x="0" y="620" width="1280" height="2" fill="#EF4444" opacity="0.4"/>
+
+  <!-- Logo -->
+  <g transform="translate(48,646)">
+    <rect width="38" height="38" rx="9" fill="rgba(0,232,122,0.12)"/>
+    <rect x="6" y="26" width="5" height="8" rx="1.5" fill="#00E87A" opacity="0.3"/>
+    <rect x="14" y="20" width="5" height="14" rx="1.5" fill="#00E87A" opacity="0.6"/>
+    <rect x="22" y="13" width="5" height="21" rx="1.5" fill="#00E87A" opacity="0.9"/>
+    <path d="M32 5 L33.1 8.2 L36.5 8.2 L33.8 10.3 L34.9 13.5 L32 11.5 L29.1 13.5 L30.2 10.3 L27.5 8.2 L30.9 8.2 Z" fill="#00E87A"/>
+  </g>
+  <text x="98" y="660" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="20" font-weight="800" fill="#F0F0F5">Ratinova</text>
+  <text x="98" y="678" font-family="system-ui" font-size="12" fill="rgba(240,240,245,0.3)">Never miss a review again</text>
+
+  <!-- Right CTA -->
+  <rect x="960" y="639" width="272" height="54" rx="12" fill="#EF4444"/>
+  <text x="1096" y="671" font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Watch how to fix this →</text>
+
+  <!-- Top edge -->
+  <rect x="0" y="0" width="1280" height="3" fill="#EF4444" opacity="0.5"/>
+
+  </g>
+</svg>
