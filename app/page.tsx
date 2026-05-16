@@ -5,6 +5,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import NavScrollEffect from "@/components/NavScrollEffect";
 import StickyCTA from "@/components/StickyCTA";
 import NavCTA from "@/components/NavCTA";
+import MobileMenu from "@/components/MobileMenu";
+import ScrollProgress from "@/components/ScrollProgress";
 import {
   QrCode, Shuffle, MessageCircle, Bell, Bot, Megaphone,
   ClipboardList, LayoutDashboard, Users, TrendingUp,
@@ -23,6 +25,7 @@ export default function Home() {
       <ScrollReveal />
       <NavScrollEffect />
       <StickyCTA />
+      <ScrollProgress />
 
       {/* ── NAV ─────────────────────────────────────── */}
       <nav>
@@ -57,6 +60,7 @@ export default function Home() {
           </a>
           <NavCTA />
         </div>
+        <MobileMenu />
       </nav>
 
       {/* ── HERO ────────────────────────────────────── */}
@@ -318,7 +322,7 @@ export default function Home() {
                 stat: "⚠ Most owners check reviews once a week",
               },
             ].map((c, i) => (
-              <div className="prob-card reveal" key={i}>
+              <div className="prob-card reveal" key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
                 <div className="ico-wrap ico-wrap-red">
                   <c.Icon size={22} color="#FF7777" strokeWidth={1.75} />
                 </div>
@@ -389,7 +393,7 @@ export default function Home() {
                 chip: "One login. Total control.",
               },
             ].map((s, i) => (
-              <div className="how-step reveal" key={i}>
+              <div className="how-step reveal" key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
                 <div className="ico-wrap" style={{ marginBottom: 0 }}>
                   <s.Icon size={20} color="var(--g)" strokeWidth={1.75} />
                 </div>
@@ -472,7 +476,7 @@ export default function Home() {
               { n: "09", Icon: Users, title: "Customer Database", desc: "Every QR scan auto-captures name and number. Your customer list grows without you doing anything.", badge: null },
               { n: "10", Icon: TrendingUp, title: "Analytics Dashboard", desc: "Track QR scans, review requests sent, conversion rate, and watch your rating climb week by week.", badge: null },
             ].map((f) => (
-              <div className="feat-card reveal" key={f.n}>
+              <div className="feat-card reveal" key={f.n} style={{ transitionDelay: `${parseInt(f.n) * 0.06}s` }}>
                 <div className="feat-n">{f.n}</div>
                 <div className="ico-wrap">
                   <f.Icon size={22} color="var(--g)" strokeWidth={1.75} />
@@ -585,7 +589,7 @@ export default function Home() {
               { n: "30–49%", l: "More tables filled at peak hours per half-star boost", s: "UC Berkeley Economist Study" },
               { n: "35%", l: "Higher customer return rate when owners respond to reviews", s: "Restaurant Marketing Statistics 2025" },
             ].map((s, i) => (
-              <div className="stat-block reveal" key={i}>
+              <div className="stat-block reveal" key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
                 <div className="stat-n">{s.n}</div>
                 <div className="stat-l">{s.l}</div>
                 <div className="stat-s">{s.s}</div>

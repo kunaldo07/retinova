@@ -1339,8 +1339,9 @@ footer {
 /* ── REVEAL ANIMATIONS ──────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(32px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible { opacity: 1; transform: none; }
@@ -1772,29 +1773,177 @@ footer {
   background: var(--border2);
 }
 
+/* ── HAMBURGER / MOBILE MENU ────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 1001;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mob-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 850;
+  background: rgba(5, 5, 8, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.mob-drawer {
+  position: absolute;
+  top: 61px;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  animation: fadeDown 0.2s ease both;
+}
+
+.mob-link {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+  display: block;
+}
+
+.mob-link:hover { color: var(--g); }
+
+.mob-cta {
+  margin-top: 20px;
+  display: block;
+  background: var(--g);
+  color: #000;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  transition: background 0.2s;
+}
+
+.mob-cta:hover { background: var(--g2); }
+
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 680px) {
-  nav { padding: 16px 20px; }
-  .nav-link { display: none; }
-  .nav-link-demo { display: flex; }
-  .hero { padding: 100px 20px 80px; }
-  .trust { padding: 16px 20px; }
-  .how-step { grid-template-columns: 1fr; }
-  .step-num { width: 38px; height: 38px; font-size: 13px; }
-  footer { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
-  .r-paths { flex-direction: column; align-items: center; }
+  /* Nav */
+  nav { padding: 14px 20px; }
+  .nav-right { display: none; }
+  .hamburger { display: flex; }
+  .mob-overlay { display: block; }
+
+  /* Hero */
+  .hero { padding: 88px 20px 56px; min-height: auto; }
+  .hero h1 { font-size: 34px; line-height: 1.1; }
+  .hero-sub { font-size: 15px; margin-bottom: 24px; }
+  .hero-tag { font-size: 10px; padding: 6px 14px; margin-bottom: 18px; }
+  .spots-bar { font-size: 12px; padding: 7px 16px; margin-bottom: 20px; }
+  .hero-form-wrap { margin-bottom: 28px; }
   .hero-form-row { grid-template-columns: 1fr; }
-  .cta-form-row { grid-template-columns: 1fr; }
-  .sticky-cta { display: flex; }
-  .wa-float { bottom: 80px; }
-  .quote-block { padding: 28px 24px; }
+  .hero-stats { gap: 16px; display: grid; grid-template-columns: 1fr 1fr; }
+  .h-stat-n { font-size: 22px; }
+  .h-stat-l { font-size: 11px; }
+
+  /* Trust & proof bars */
+  .trust { padding: 12px 20px; font-size: 11px; gap: 5px; }
+  .proof-bar { padding: 12px 20px; gap: 10px; }
+  .proof-divider { display: none; }
+  .proof-item { font-size: 12px; }
+
+  /* Sections */
+  .section { padding: 56px 0; }
+  .s-title { font-size: 26px; }
+  .s-sub { font-size: 14px; }
+
+  /* 3-Step cards */
   .steps-grid { grid-template-columns: 1fr; }
-  .dash-frame { border-radius: 10px; margin-top: 32px; }
-  .dash-pills { gap: 8px; margin-top: 20px; }
-  .step-card { border-right: none; border-bottom: 1px solid var(--border); }
+  .step-card { border-right: none; border-bottom: 1px solid var(--border); padding: 24px 20px; }
   .step-card:last-child { border-bottom: none; }
   .step-card-arrow { display: none; }
-  .founder-box { flex-direction: column; padding: 28px 24px; }
-  .proof-bar { gap: 16px; padding: 16px 20px; }
-  .proof-divider { display: none; }
+  .step-card-num { font-size: 36px; margin-bottom: 10px; }
+
+  /* Dashboard */
+  .dash-frame { border-radius: 10px; margin-top: 24px; }
+  .dash-pills { gap: 8px; margin-top: 16px; }
+  .dash-pill { font-size: 11px; padding: 5px 12px; }
+
+  /* How it works steps */
+  .how-wrap { margin-top: 28px; }
+  .how-step { grid-template-columns: 44px 1fr; gap: 14px; padding: 18px 0; }
+  .ico-wrap { width: 44px; height: 44px; border-radius: 12px; margin-bottom: 0; }
+  .step-title { font-size: 16px; }
+  .step-desc { font-size: 13px; }
+
+  /* Routing box */
+  .routing-box { padding: 22px 18px; margin-top: 28px; border-radius: 14px; }
+  .r-center { font-size: 13px; padding: 10px 16px; }
+  .r-arrows { gap: 28px; font-size: 20px; margin: 10px 0; }
+  .r-paths { flex-direction: column; align-items: stretch; gap: 10px; }
+  .r-path { min-width: unset; max-width: 100%; padding: 18px; }
+
+  /* Features grid */
+  .feat-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 28px; }
+  .feat-card { padding: 20px; }
+
+  /* Problem grid */
+  .prob-grid { grid-template-columns: 1fr; margin-top: 28px; }
+  .prob-card { padding: 20px; }
+
+  /* Stats */
+  .stats-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-top: 28px; }
+  .stat-block { padding: 18px 14px; }
+  .stat-n { font-size: 26px; white-space: nowrap; }
+  .stat-l { font-size: 11px; }
+  .stat-s { font-size: 10px; }
+
+  /* Quote */
+  .quote-block { padding: 22px 18px; margin-top: 20px; }
+  .q-text { font-size: 15px; }
+
+  /* CTA section */
+  .cta-section { padding: 60px 20px; }
+  .cta-inner h2 { font-size: 28px; }
+  .cta-form-row { grid-template-columns: 1fr; }
+
+  /* Founder box */
+  .founder-box { flex-direction: column; padding: 24px 20px; gap: 20px; }
+
+  /* Footer */
+  footer { flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 14px; }
+  .footer-links { gap: 16px; }
+
+  /* Sticky CTA & WhatsApp float */
+  .sticky-cta { display: flex; }
+  .wa-float { bottom: 80px; right: 20px; width: 48px; height: 48px; font-size: 22px; }
 }
